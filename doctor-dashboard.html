@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Doctor Dashboard</title>
+
+
+    <script>
+        if (!localStorage.getItem('userEmail')) {
+            window.location.replace("login.html");
+        }
+    </script>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="doctor-dashboard.css">
+</head>
+
+<body>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <a href="index.html"><img src="./asset/logo_bule.webp" alt="logo"></a>
+            <div class="dashboard-badge"><i class="fas fa-user-md"></i> Doctor Panel</div>
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-item active" onclick="switchTab('tab-overview', this, 'Doctor Overview')">
+                <i class="fas fa-th-large"></i> Overview
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-appointments', this, 'Appointments & Schedule')">
+                <i class="fas fa-calendar-alt"></i> Appointments
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-patients', this, 'Patient Records')">
+                <i class="fas fa-users"></i> Patients
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-prescriptions', this, 'E-Prescriptions')">
+                <i class="fas fa-file-prescription"></i> E-Prescriptions
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-earnings', this, 'Earnings & Billing')">
+                <i class="fas fa-wallet"></i> Earnings
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-settings', this, 'Doctor Profile & Settings')">
+                <i class="fas fa-user-cog"></i> Settings
+            </div>
+        </div>
+
+
+        <div class="sidebar-profile">
+            <div class="profile-img-box bg-blue"><i class="fas fa-user-md"></i></div>
+            <div class="profile-details">
+                <h4 id="sidebarName">Doctor Name</h4>
+                <p id="sidebarEmail">doctor@stackly.com</p>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="main-wrapper">
+
+
+        <header class="top-header">
+            <div class="header-left">
+                <i class="fas fa-bars menu-toggle" onclick="toggleSidebar()"></i>
+                <h2 id="pageTitle" class="page-title">Doctor Overview</h2>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="header-btn btn-home"><i class="fas fa-home"></i> <span
+                        class="hide-mobile">Home</span></a>
+                <button onclick="logout()" class="header-btn btn-logout"><i class="fas fa-sign-out-alt"></i> <span
+                        class="hide-mobile">Logout</span></button>
+            </div>
+        </header>
+
+        <div class="dashboard-body">
+
+            <div id="tab-overview" class="content-tab active">
+
+
+                <div class="grid-4">
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="stat-icon bg-blue"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <p>Total Patients</p>
+                            <h3>1,245</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon bg-green"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-info">
+                            <p>Today's Visits</p>
+                            <h3>24</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon bg-gold"><i class="fas fa-procedures"></i></div>
+                        <div class="stat-info">
+                            <p>Operations</p>
+                            <h3>3</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon bg-red"><i class="fas fa-coins"></i></div>
+                        <div class="stat-info">
+                            <p>Revenue (Today)</p>
+                            <h3>$1,450</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-right">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-chart-pie"></i> Patient Demographics</h3>
+                        </div>
+
+                        <div class="chart-container" style="height: 280px; display: flex; justify-content: center;">
+                            <canvas id="doctorPieChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-bullseye"></i> Weekly Targets</h3>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Consultations (120/150)</span><span>80%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-blue" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Online Reviews (4.8/5.0)</span><span>96%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-green" style="width: 96%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Surgery Success Rate</span><span>99%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-gold" style="width: 99%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Telemedicine Calls</span><span>65%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-red" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/e5.webp" alt="Doctor Room">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-stethoscope"></i> Welcome back, Doctor</h3>
+                            <p>Your schedule is packed today. Please review the urgent cases and upcoming surgeries
+                                before starting your OPD.</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-blue mt-2">Start
+                                Consultation</button>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-exclamation-circle text-red"></i> Urgent Attention Required</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Condition</th>
+                                        <th>Time</th>
+                                        <th>Room</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Michael Smith</td>
+                                        <td>Severe Chest Pain</td>
+                                        <td>10:00 AM</td>
+                                        <td>ICU-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sarah Connor</td>
+                                        <td>Post-op Check</td>
+                                        <td>11:30 AM</td>
+                                        <td>Ward-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>David John</td>
+                                        <td>High BP Alert</td>
+                                        <td>12:15 PM</td>
+                                        <td>OPD-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emma Wilson</td>
+                                        <td>Asthma Attack</td>
+                                        <td>01:00 PM</td>
+                                        <td>ER-1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-1">
+                    <div class="premium-panel" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-bullhorn"></i> Hospital Announcements & Notices</h3>
+                        </div>
+                        <div class="timeline-list" style="flex-direction: row; gap: 20px; flex-wrap: wrap;">
+                            <div class="action-item flex-1 border-left-blue"><i
+                                    class="fas fa-hand-sparkles fa-2x text-blue"></i>
+                                <div>
+                                    <h4>Sanitation Drive</h4>
+                                    <p>Mandatory hand hygiene seminar at 4 PM today.</p>
+                                </div>
+                            </div>
+                            <div class="action-item flex-1 border-left-gold"><i
+                                    class="fas fa-server fa-2x text-gold"></i>
+                                <div>
+                                    <h4>System Maintenance</h4>
+                                    <p>EHR System will be down for 30 mins at midnight.</p>
+                                </div>
+                            </div>
+                            <div class="action-item flex-1 border-left-green"><i
+                                    class="fas fa-users-cog fa-2x text-green"></i>
+                                <div>
+                                    <h4>Board Meeting</h4>
+                                    <p>Monthly doctors review meeting on Friday.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-appointments" class="content-tab">
+
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q9.webp" alt="Schedule">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-calendar-alt"></i> Telemedicine & OPD</h3>
+                            <p>Manage your online video consultations and in-person hospital visits seamlessly.</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-green mt-2">Go
+                                Online</button>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-list-ol"></i> Today's Full Schedule</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Patient</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>09:00 AM</td>
+                                        <td>John Doe</td>
+                                        <td><span class="badge bg-blue">Video</span></td>
+                                        <td><span class="badge bg-green">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10:30 AM</td>
+                                        <td>Alice Brown</td>
+                                        <td><span class="badge bg-gold">In-Person</span></td>
+                                        <td><span class="badge bg-gold">Waiting</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:45 AM</td>
+                                        <td>Robert Patt</td>
+                                        <td><span class="badge bg-gold">In-Person</span></td>
+                                        <td><span class="badge bg-gold">Waiting</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>02:00 PM</td>
+                                        <td>Emily Clark</td>
+                                        <td><span class="badge bg-blue">Video</span></td>
+                                        <td><span class="badge bg-red">Delayed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-right">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-clock"></i> Next Appointments</h3>
+                        </div>
+                        <div class="timeline-list">
+                            <div class="timeline-item border-left-gold">
+                                <div>
+                                    <h4 class="text-gold">Alice Brown (In-Person)</h4>
+                                    <p>Routine Checkup • 10:30 AM</p>
+                                </div><button onclick="window.location.href='404page.html'"
+                                    class="btn-action bg-gold ms-auto">Call In</button>
+                            </div>
+                            <div class="timeline-item border-left-blue mt-3">
+                                <div>
+                                    <h4 class="text-blue">Robert Patt (In-Person)</h4>
+                                    <p>Post Surgery • 11:45 AM</p>
+                                </div><span class="badge bg-muted ms-auto">Queued</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-exchange-alt"></i> Reschedule Requests</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item border-left-red bg-light-red">
+                                <div>
+                                    <h4 class="text-red">Mark Wilson</h4>
+                                    <p>Requested to change 02:00 PM to Tomorrow 10 AM</p>
+                                </div>
+                                <div class="ms-auto"><button onclick="window.location.href='404page.html'"
+                                        class="btn-action bg-green"><i class="fas fa-check"></i></button> <button
+                                        onclick="window.location.href='404page.html'" class="btn-action bg-red"><i
+                                            class="fas fa-times"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-clipboard-list"></i> Pre-Consultation Notes</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><i class="fas fa-info-circle text-blue"></i> Alice Brown reported dizziness since
+                                yesterday.</li>
+                            <li><i class="fas fa-info-circle text-blue"></i> Robert Patt has submitted his recent MRI
+                                scan online.</li>
+                            <li><i class="fas fa-exclamation-triangle text-red"></i> Emergency Ward requires your
+                                sign-off at 1 PM.</li>
+                        </ul>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-calendar-week"></i> Weekly Calendar Stats</h3>
+                        </div>
+                        <div class="grid-2" style="gap:15px; margin-bottom:0;">
+                            <div class="info-box bg-light-blue text-center p-3" style="border-radius:10px;">
+                                <h2 class="text-blue">45</h2>
+                                <p>Total Booked</p>
+                            </div>
+                            <div class="info-box bg-light-green text-center p-3" style="border-radius:10px;">
+                                <h2 class="text-green">38</h2>
+                                <p>Completed</p>
+                            </div>
+                            <div class="info-box bg-light-red text-center p-3" style="border-radius:10px;">
+                                <h2 class="text-red">4</h2>
+                                <p>Cancelled</p>
+                            </div>
+                            <div class="info-box bg-light-gold text-center p-3" style="border-radius:10px;">
+                                <h2 class="text-gold">3</h2>
+                                <p>No-Shows</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-patients" class="content-tab">
+
+
+                <div class="grid-3">
+                    <div class="premium-panel stat-card" data-aos="fade-up">
+                        <div class="stat-icon bg-blue"><i class="fas fa-user-plus"></i></div>
+                        <div class="stat-info">
+                            <p>New Patients (Month)</p>
+                            <h3>145</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon bg-green"><i class="fas fa-undo"></i></div>
+                        <div class="stat-info">
+                            <p>Returning Patients</p>
+                            <h3>89%</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon bg-red"><i class="fas fa-heartbeat"></i></div>
+                        <div class="stat-info">
+                            <p>Critical Cases</p>
+                            <h3>12</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/w4.webp" alt="EHR">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-laptop-medical"></i> AI Health Insights</h3>
+                            <p>Our AI analyzes patient history to predict potential risks and suggests preventative
+                                measures.</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-blue mt-2">Run AI
+                                Scan</button>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-folder-open"></i> Recent EHR Accessed</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Patient ID</th>
+                                        <th>Name</th>
+                                        <th>Last Visit</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#PT-9901</td>
+                                        <td>Alice Brown</td>
+                                        <td>Oct 10, 2026</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i> View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#PT-9805</td>
+                                        <td>Robert Patt</td>
+                                        <td>Sep 15, 2026</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i> View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#PT-9750</td>
+                                        <td>John Doe</td>
+                                        <td>Aug 05, 2026</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i> View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#PT-9622</td>
+                                        <td>Emma Wilson</td>
+                                        <td>Jul 22, 2026</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i> View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-3">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-star text-gold"></i> Patient Satisfaction</h3>
+                        </div>
+
+
+                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+                            <div style="font-size: 48px; font-weight: 800; color: var(--secondary); line-height: 1;">4.9
+                            </div>
+                            <div>
+                                <div style="color: var(--warning); font-size: 18px; margin-bottom: 5px;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="text-muted" style="font-size: 13px; font-weight: 500;">Based on 1,245 patient
+                                    reviews</p>
+                            </div>
+                        </div>
+
+
+                        <div class="info-box bg-light-blue" style="border-radius: 12px; padding: 18px;">
+                            <p class="text-muted" style="font-size: 14px; font-style: italic; line-height: 1.6;">
+                                <i class="fas fa-quote-left text-blue" style="margin-right: 8px; font-size: 18px;"></i>
+                                "The doctor is incredible. Not only has she taken great care of my health, but she is
+                                also very lovely to speak with at every appointment. Highly recommended!"
+                            </p>
+                            <div
+                                style="text-align: right; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--primary);">
+                                - Alice Brown
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-exclamation-triangle text-red"></i> Critical Alerts</h3>
+                            <span class="badge bg-red" style="animation: pulse 2s infinite;">2 Urgent</span>
+                        </div>
+
+                        <div class="premium-alert-list">
+
+                            <div class="premium-alert-card alert-critical">
+                                <div class="alert-icon bg-red"><i class="fas fa-heartbeat"></i></div>
+                                <div class="alert-content">
+                                    <h4>Emma Wilson</h4>
+                                    <p>BP extremely high (180/110). Needs immediate review.</p>
+                                    <span class="alert-time"><i class="far fa-clock"></i> 10 mins ago</span>
+                                </div>
+                            </div>
+
+
+                            <div class="premium-alert-card alert-warning mt-3">
+                                <div class="alert-icon bg-gold"><i class="fas fa-procedures"></i></div>
+                                <div class="alert-content">
+                                    <h4>David John</h4>
+                                    <p>Missed last 2 dialysis sessions. Contact family.</p>
+                                    <span class="alert-time"><i class="far fa-clock"></i> 2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="200">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-procedures"></i> Active Treatments (Ward)</h3>
+                        </div>
+
+
+                        <div class="ward-status-card mb-4">
+                            <div class="ward-header">
+                                <div class="ward-title-group">
+                                    <div class="ward-icon bg-light-green"><i class="fas fa-user-check text-green"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Post-Op Recoveries</h4>
+                                        <p class="text-muted" style="font-size: 12px;">Stable Condition</p>
+                                    </div>
+                                </div>
+                                <div class="ward-count text-green">8/10</div>
+                            </div>
+                            <div class="prog-bg mt-2"
+                                style="height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                                <div class="prog-fill bg-green"
+                                    style="width: 80%; height: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);">
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr style="border-top: 1px dashed var(--border); margin: 20px 0;">
+
+
+                        <div class="ward-status-card">
+                            <div class="ward-header">
+                                <div class="ward-title-group">
+                                    <div class="ward-icon bg-light-red"><i class="fas fa-procedures text-red"></i></div>
+                                    <div>
+                                        <h4>ICU Occupancy</h4>
+                                        <p class="text-muted" style="font-size: 12px;">Critical Care</p>
+                                    </div>
+                                </div>
+                                <div class="ward-count text-red">4/5</div>
+                            </div>
+                            <div class="prog-bg mt-2"
+                                style="height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                                <div class="prog-fill bg-red"
+                                    style="width: 80%; height: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-prescriptions" class="content-tab">
+
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q1.webp" alt="Pharmacy">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-signature"></i> Smart E-Prescribing</h3>
+                            <p>Instantly send prescriptions to the hospital pharmacy or the patient's mobile app
+                                securely.</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-green mt-2">Write
+                                New Rx</button>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-history"></i> Recently Issued Prescriptions</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Patient</th>
+                                        <th>Medication</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>Amoxicillin 500mg</td>
+                                        <td>Today</td>
+                                        <td><span class="badge bg-green">Dispensed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alice Brown</td>
+                                        <td>Lisinopril 10mg</td>
+                                        <td>Yesterday</td>
+                                        <td><span class="badge bg-gold">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Robert Patt</td>
+                                        <td>Painkillers</td>
+                                        <td>Oct 15</td>
+                                        <td><span class="badge bg-green">Dispensed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emma Wilson</td>
+                                        <td>Inhaler Refill</td>
+                                        <td>Oct 14</td>
+                                        <td><span class="badge bg-red">Expired</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-right">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-star"></i> Frequently Prescribed</h3>
+                        </div>
+                        <div class="grid-2" style="gap:15px; margin-bottom:0;">
+                            <div class="info-box bg-light-blue text-center p-3" style="border-radius:10px;"><i
+                                    class="fas fa-pills fa-2x text-blue mb-2"></i><br><b>Paracetamol</b><br><button
+                                    onclick="window.location.href='404page.html'" class="btn-action bg-blue mt-2"
+                                    style="padding:5px 10px; font-size:12px;">Quick
+                                    Add</button></div>
+                            <div class="info-box bg-light-green text-center p-3" style="border-radius:10px;"><i
+                                    class="fas fa-tablets fa-2x text-green mb-2"></i><br><b>Amoxicillin</b><br><button
+                                    onclick="window.location.href='404page.html'" class="btn-action bg-green mt-2"
+                                    style="padding:5px 10px; font-size:12px;">Quick
+                                    Add</button></div>
+                            <div class="info-box bg-light-gold text-center p-3" style="border-radius:10px;"><i
+                                    class="fas fa-capsules fa-2x text-gold mb-2"></i><br><b>Vitamin D3</b><br><button
+                                    onclick="window.location.href='404page.html'" class="btn-action bg-gold mt-2"
+                                    style="padding:5px 10px; font-size:12px;">Quick
+                                    Add</button></div>
+                            <div class="info-box bg-light-red text-center p-3" style="border-radius:10px;"><i
+                                    class="fas fa-syringe fa-2x text-red mb-2"></i><br><b>Insulin</b><br><button
+                                    onclick="window.location.href='404page.html'" class="btn-action bg-red mt-2"
+                                    style="padding:5px 10px; font-size:12px;">Quick
+                                    Add</button></div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-sync"></i> Refill Requests</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item border-left-gold bg-light-gold">
+                                <div>
+                                    <h4 class="text-gold">Alice Brown</h4>
+                                    <p>Requested refill for Lisinopril 10mg (30 days)</p>
+                                </div>
+                                <div class="ms-auto"><button onclick="window.location.href='404page.html'"
+                                        class="btn-action bg-green"><i class="fas fa-check"></i></button> <button
+                                        onclick="window.location.href='404page.html'" class="btn-action bg-red"><i
+                                            class="fas fa-times"></i></button></div>
+                            </div>
+                            <div class="action-item border-left-blue">
+                                <div>
+                                    <h4 class="text-blue">David John</h4>
+                                    <p>Requested refill for Metformin (60 days)</p>
+                                </div>
+                                <div class="ms-auto"><button onclick="window.location.href='404page.html'"
+                                        class="btn-action bg-green"><i class="fas fa-check"></i></button> <button
+                                        onclick="window.location.href='404page.html'" class="btn-action bg-red"><i
+                                            class="fas fa-times"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-shield-virus"></i> AI Drug Interaction Alerts</h3>
+                        </div>
+                        <div class="info-box bg-light-red mb-3">
+                            <h4 class="text-red mb-1">High Risk: Patient #PT-9901</h4>
+                            <p class="text-muted">Prescribing Aspirin with Ibuprofen increases bleeding risk. Consider
+                                alternative NSAIDs.</p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-boxes"></i> In-House Pharmacy Stock</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>Amoxicillin:</strong> <span class="text-green">In Stock (500+ strips)</span>
+                            </li>
+                            <li><strong>Lisinopril:</strong> <span class="text-gold">Low Stock (20 strips)</span></li>
+                            <li><strong>Insulin Pens:</strong> <span class="text-red">Out of Stock</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-earnings" class="content-tab">
+
+
+                <div class="grid-3">
+                    <div class="premium-panel stat-card" data-aos="fade-up">
+                        <div class="stat-icon bg-green"><i class="fas fa-wallet"></i></div>
+                        <div class="stat-info">
+                            <p>Total Earnings (Mth)</p>
+                            <h3>$18,450</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon bg-gold"><i class="fas fa-hourglass-half"></i></div>
+                        <div class="stat-info">
+                            <p>Pending Claims</p>
+                            <h3>$3,200</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon bg-blue"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="stat-info">
+                            <p>Next Payout</p>
+                            <h3>Oct 30</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/w5.webp" alt="Finance">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-chart-line"></i> Financial Growth</h3>
+                            <p>Your earnings have increased by 15% this month compared to the last. Keep up the great
+                                work!</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-green mt-2">View
+                                Analytics</button>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-file-invoice-dollar"></i> Recent Transactions</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Patient / Insurer</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#TXN-101</td>
+                                        <td>John Doe (Direct)</td>
+                                        <td>$150.00</td>
+                                        <td><span class="badge bg-green">Credited</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN-102</td>
+                                        <td>BlueCross (Claim)</td>
+                                        <td>$450.00</td>
+                                        <td><span class="badge bg-gold">Processing</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN-103</td>
+                                        <td>Alice Brown (Direct)</td>
+                                        <td>$100.00</td>
+                                        <td><span class="badge bg-green">Credited</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN-104</td>
+                                        <td>Medicare (Claim)</td>
+                                        <td>$850.00</td>
+                                        <td><span class="badge bg-red">Failed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-3">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-chart-bar"></i> Revenue Breakdown</h3>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Consultations</span><span>60%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-blue" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Surgeries</span><span>30%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-gold" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Telemedicine</span><span>10%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-green" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-shield-alt"></i> Insurance Claims</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><i class="fas fa-check-circle text-green"></i> 15 Claims Approved this week.</li>
+                            <li><i class="fas fa-exclamation-circle text-gold"></i> 3 Claims need additional
+                                documentation.</li>
+                            <li><i class="fas fa-times-circle text-red"></i> 1 Claim rejected (Code: E-404).</li>
+                        </ul>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="200">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-file-pdf"></i> Tax & Statements</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item"><i class="fas fa-file-invoice text-red fa-2x"></i>
+                                <div>
+                                    <h4>Q3 2026 Earnings</h4>
+                                    <p>PDF Report</p>
+                                </div><button onclick="window.location.href='404page.html'"
+                                    class="btn-action bg-blue ms-auto"><i class="fas fa-download"></i></button>
+                            </div>
+                            <div class="action-item mt-2"><i class="fas fa-file-invoice text-red fa-2x"></i>
+                                <div>
+                                    <h4>2025 Annual Tax</h4>
+                                    <p>PDF Report</p>
+                                </div><button onclick="window.location.href='404page.html'"
+                                    class="btn-action bg-blue ms-auto"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-settings" class="content-tab">
+
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q8.webp" alt="Security">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-lock"></i> Enterprise Security</h3>
+                            <p>Your doctor portal is secured with end-to-end encryption. HIPAA compliant data handling.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-laptop"></i> Recent Login Activity</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Device</th>
+                                        <th>Location</th>
+                                        <th>Date & Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hospital iMac</td>
+                                        <td>Clinic 1</td>
+                                        <td>Today, 08:30 AM</td>
+                                        <td><span class="badge bg-green">Current</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>iPhone 14 Pro</td>
+                                        <td>Chennai, IN</td>
+                                        <td>Yesterday, 9:15 PM</td>
+                                        <td><span class="badge bg-blue">Verified</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>MacBook Air</td>
+                                        <td>Madurai, IN</td>
+                                        <td>Oct 15, 2026</td>
+                                        <td><span class="badge bg-blue">Verified</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-user-md"></i> Professional Profile</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong><i class="fas fa-user text-blue w-20"></i> Name:</strong> <span
+                                    id="infoName">Dr. Name</span></li>
+                            <li><strong><i class="fas fa-envelope text-blue w-20"></i> Email:</strong> <span
+                                    id="infoEmail">email@domain.com</span></li>
+                            <li><strong><i class="fas fa-id-card text-blue w-20"></i> License:</strong> MED-8890214</li>
+                            <li><strong><i class="fas fa-hospital text-blue w-20"></i> Department:</strong> Cardiology
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-user-nurse"></i> Assigned Assistants</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item border-left-blue bg-light-blue">
+                                <i class="fas fa-user-nurse fa-2x text-blue"></i>
+                                <div>
+                                    <h4 class="text-blue">Nurse Emily</h4>
+                                    <p>Head Nurse • +1 (987) 654-3210</p>
+                                </div>
+                            </div>
+                            <div class="action-item border-left-gold">
+                                <i class="fas fa-user-tie fa-2x text-gold"></i>
+                                <div>
+                                    <h4 class="text-gold">John Smith</h4>
+                                    <p>Desk Receptionist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-sliders-h"></i> System Preferences</h3>
+                        </div>
+
+                        <div class="toggle-list">
+
+                            <div class="toggle-item">
+                                <div>
+                                    <h4 style="font-size: 15px; color: var(--secondary); margin-bottom: 3px;">Accept
+                                        Telemedicine Calls</h4>
+                                    <p class="text-muted" style="font-size: 13px;">Allow patients to book video
+                                        consultations</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+
+                            <div class="toggle-item mt-3">
+                                <div>
+                                    <h4 style="font-size: 15px; color: var(--secondary); margin-bottom: 3px;">Auto-Send
+                                        E-Prescriptions</h4>
+                                    <p class="text-muted" style="font-size: 13px;">Automatically forward Rx to pharmacy
+                                    </p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+
+                            <div class="toggle-item mt-3">
+                                <div>
+                                    <h4 style="font-size: 15px; color: var(--secondary); margin-bottom: 3px;">Accept
+                                        Walk-in Patients</h4>
+                                    <p class="text-muted" style="font-size: 13px;">Allow emergency OPD walk-ins</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-crown text-gold"></i> Software Plan</h3>
+                        </div>
+                        <div class="info-box bg-light-gold text-center p-4"
+                            style="border-radius:15px; border:2px solid #fbbf24;">
+                            <h2 class="text-gold mb-2">Stackly Premium Elite</h2>
+                            <p class="text-muted">You have unlimited patient records and AI features unlocked.</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-gold mt-3">Manage
+                                Subscription</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+
+
+
+
+        let doctorChartInstance = null; 
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const storedEmail = localStorage.getItem('userEmail');
+            if (storedEmail) {
+                let extractedName = storedEmail.split('@')[0];
+                extractedName = "Dr. " + extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+
+                const sideName = document.getElementById("sidebarName");
+                const sideEmail = document.getElementById("sidebarEmail");
+                const infoName = document.getElementById("infoName");
+                const infoEmail = document.getElementById("infoEmail");
+
+                if (sideName) sideName.textContent = extractedName;
+                if (sideEmail) sideEmail.textContent = storedEmail;
+                if (infoName) infoName.textContent = extractedName;
+                if (infoEmail) infoEmail.textContent = storedEmail;
+            }
+
+
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: false,
+                    offset: 20,
+                    easing: 'ease-out-cubic',
+                    disable: window.innerWidth < 768
+                });
+            }
+
+
+            setTimeout(() => {
+                if (typeof AOS !== 'undefined') {
+                    AOS.refreshHard();
+                    window.dispatchEvent(new Event('scroll'));
+                }
+                initDoctorChart();
+            }, 150);
+        });
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            sidebar.classList.toggle('mobile-open');
+            if (sidebar.classList.contains('mobile-open')) {
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+
+        function switchTab(tabId, element, pageTitle) {
+
+
+            document.querySelectorAll('.content-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.querySelectorAll('[data-aos]').forEach(el => {
+                    el.classList.remove('aos-animate');
+                });
+            });
+
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.remove('active');
+            });
+
+
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+            element.classList.add('active');
+            document.getElementById('pageTitle').innerText = pageTitle;
+
+
+            if (tabId === 'tab-overview') {
+                setTimeout(() => {
+                    initDoctorChart();
+                }, 100);
+            }
+
+
+            setTimeout(() => {
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                    activeTab.querySelectorAll('[data-aos]').forEach(el => {
+                        el.classList.add('aos-animate');
+                    });
+                }
+            }, 50);
+
+
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
+        }
+
+
+        function logout() {
+            localStorage.removeItem('userEmail');
+            window.location.href = "login.html";
+        }
+
+
+        function initDoctorChart() {
+            const ctx = document.getElementById('doctorPieChart');
+            if (!ctx || typeof Chart === 'undefined') return;
+
+            if (doctorChartInstance) {
+                doctorChartInstance.destroy();
+            }
+
+            doctorChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['New Patients', 'Returning', 'Surgeries', 'Telemedicine'],
+                    datasets: [{
+                        data: [35, 40, 10, 15],
+                        backgroundColor: [
+                            '#2563eb', 
+                            '#10b981', 
+                            '#f59e0b', 
+                            '#ef4444'  
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%', 
+                    plugins: {
+                        legend: { position: 'right', labels: { usePointStyle: true, padding: 20 } }
+                    },
+                    animation: { animateScale: true, animateRotate: true, duration: 1500, easing: 'easeOutQuart' }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

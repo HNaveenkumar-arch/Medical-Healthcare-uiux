@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Healthcare</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="fqa.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+
+    <div id="preloader">
+        <div class="loader-content">
+            <i class="fas fa-heartbeat heartbeat-loader"></i>
+            <span class="loader-text">STACKLY...</span>
+        </div>
+    </div>
+
+
+    <div class="top-bar" id="topBar">
+        <div class="marquee-container">
+            <p class="marquee-text">Get 20% off for first order. More information here.</p>
+        </div>
+        <button class="close-top-btn" id="closeTopBar">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+
+
+    <header class="header" id="mainHeader">
+        <nav class="navbar">
+
+            <a href="index.html" class="logo" data-aos="fade-right" data-aos-duration="1000">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+
+
+            <ul class="nav-links">
+                <li data-aos="fade-down" data-aos-delay="100"><a href="index.html" class="nav-item">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="about.html" class="nav-item">About Us</a></li>
+
+
+                <li class="dropdown" data-aos="fade-down" data-aos-delay="300">
+                    <a href="service.html" class="nav-item">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+
+                    </ul>
+                </li>
+
+                <li data-aos="fade-down" data-aos-delay="400"><a href="blog.html" class="nav-item">Blog</a></li>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="fqa.html" class="nav-item active">FQAs</a></li>
+                <li data-aos="fade-down" data-aos-delay="600"><a href="gallery.html" class="nav-item">Photo Gallery</a>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="contact.html" class="nav-item">Contact</a></li>
+
+                </li>
+            </ul>
+
+
+            <div class="nav-actions">
+                <a href="login.html" class="login-btn" data-aos="fade-left" data-aos-delay="700">Log In</a>
+                <a href="signup.html" class="signup-btn" data-aos="fade-left" data-aos-delay="800">Sign Up</a>
+            </div>
+
+
+            <div class="hamburger" id="hamburgerMenu" data-aos="fade-left" data-aos-duration="1000">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+            <div class="close-mobile-btn" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+
+        <div class="mobile-menu-body">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+
+
+                <li>
+                    <a href="service.html" class="mobile-services-link">Services <i
+                            class="fas fa-chevron-down mobile-dropdown-toggle" id="mobileServiceArrow"></i></a>
+                    <ul class="mobile-submenu" id="mobileSubmenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="fqa.html" class="active">FQAs</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <div class="mobile-auth">
+                <a href="login.html" class="login-btn">Log In</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="faq-hero-section">
+
+
+        <div class="faq-slide active">
+
+            <div class="faq-bg" style="background-image: url('./asset/q25.webp');"></div>
+            <div class="faq-overlay"></div>
+
+            <div class="faq-container">
+
+                <div class="faq-content-card">
+
+                    <div class="faq-breadcrumb faq-anim-item">
+                        <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>FAQs</span>
+                    </div>
+
+                    <h1 class="faq-anim-item">Got Questions? <br>We've Got Answers</h1>
+                    <p class="faq-anim-item">Find everything you need to know about our clinic, treatments, and
+                        appointments. We are here to provide complete clarity and peace of mind.</p>
+
+                    <div class="faq-buttons faq-anim-item">
+                        <a href="404page.html" class="faq-btn faq-btn-primary">Browse FAQs</a>
+                        <a href="404page.html" class="faq-btn faq-btn-outline">Ask a Question</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="faq-slide">
+
+            <div class="faq-bg" style="background-image: url('./asset/q1.webp');"></div>
+            <div class="faq-overlay"></div>
+
+            <div class="faq-container">
+
+                <div class="faq-content-card">
+
+                    <div class="faq-breadcrumb faq-anim-item">
+                        <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>FAQs</span>
+                    </div>
+
+                    <h1 class="faq-anim-item">Transparent & <br>Reliable Support</h1>
+                    <p class="faq-anim-item">Your health journey deserves transparency. Explore our knowledge base for
+                        details on insurance, billing, and specialized care.</p>
+
+                    <div class="faq-buttons faq-anim-item">
+                        <a href="404page.html" class="faq-btn faq-btn-primary">Insurance Info</a>
+                        <a href="404page.html" class="faq-btn faq-btn-outline">Contact Support</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="faq-accordion-section">
+        <div class="faq-acc-container">
+
+
+            <div class="faq-acc-header">
+                <h2 class="faq-acc-anim">Frequently asked questions</h2>
+                <p class="faq-acc-anim">Everything you need to know about our clinic, appointments, and billing.</p>
+            </div>
+
+
+            <div class="faq-acc-list">
+
+
+                <div class="faq-item faq-acc-anim">
+                    <div class="faq-question">
+                        <h3>Is there a free consultation available?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a free 15-minute initial tele-consultation for new patients to discuss their
+                            symptoms and determine the right specialist for their needs.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item faq-acc-anim">
+                    <div class="faq-question">
+                        <h3>Can I change or cancel my appointment later?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. You can reschedule or cancel your appointment up to 24 hours in advance without
+                            any penalty through our online patient portal or by calling our support desk.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item faq-acc-anim">
+                    <div class="faq-question">
+                        <h3>What is your cancellation and refund policy?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cancellations made within 24 hours of the scheduled time may be subject to a nominal
+                            cancellation fee. Refunds for advance payments are processed within 3-5 business days to the
+                            original payment method.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item faq-acc-anim">
+                    <div class="faq-question">
+                        <h3>Can other info be added to a medical invoice?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. If you need specific details such as your company name, tax ID, or insurance policy
+                            number added to your invoice, please inform our billing department before your final
+                            checkout.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item faq-acc-anim">
+                    <div class="faq-question">
+                        <h3>How does insurance billing work?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer direct billing to most major insurance providers. You only need to pay the co-pay
+                            amount or deductibles at the time of your visit. Our team handles the claim submission for
+                            you.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="faq-premium-grid">
+        <div class="fpg-container">
+
+
+            <div class="fpg-header">
+                <h5 class="fpg-anim">Quick Answers</h5>
+                <h2 class="fpg-anim">Explore Our Knowledge Base</h2>
+                <p class="fpg-anim">Hover over the cards below to instantly reveal the answers to our most common
+                    questions.</p>
+            </div>
+
+
+            <div class="fpg-grid">
+
+
+                <div class="fpg-card fpg-anim-card">
+                    <div class="fpg-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Do I need a referral to see a specialist?</h3>
+                    <div class="fpg-answer">
+                        <p>In most cases, you don't need a referral to book an appointment with our specialists.
+                            However, certain insurance plans may require one for claim approvals.</p>
+                    </div>
+                </div>
+
+
+                <div class="fpg-card fpg-anim-card">
+                    <div class="fpg-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Do you accept international insurance?</h3>
+                    <div class="fpg-answer">
+                        <p>Yes, we partner with major global insurance providers. Our billing team will assist you in
+                            direct billing or provide the necessary documents for reimbursement.</p>
+                    </div>
+                </div>
+
+
+                <div class="fpg-card fpg-anim-card">
+                    <div class="fpg-icon"><i class="fas fa-laptop-medical"></i></div>
+                    <h3>Is telehealth consultation available?</h3>
+                    <div class="fpg-answer">
+                        <p>Absolutely! We offer secure 24/7 video consultations with our doctors. You can easily book a
+                            virtual slot through our online patient portal.</p>
+                    </div>
+                </div>
+
+
+                <div class="fpg-card fpg-anim-card">
+                    <div class="fpg-icon"><i class="fas fa-vials"></i></div>
+                    <h3>How long do laboratory test results take?</h3>
+                    <div class="fpg-answer">
+                        <p>Standard blood and pathology test results are typically available within 24 to 48 hours. You
+                            will receive an SMS and email notification once they are ready.</p>
+                    </div>
+                </div>
+
+
+                <div class="fpg-card fpg-anim-card">
+                    <div class="fpg-icon"><i class="fas fa-prescription-bottle-alt"></i></div>
+                    <h3>Can I get my prescriptions refilled online?</h3>
+                    <div class="fpg-answer">
+                        <p>Yes. Registered patients can request medication refills through our app. Our pharmacy also
+                            offers free city-wide delivery for approved refills.</p>
+                    </div>
+                </div>
+
+
+                <div class="fpg-card fpg-anim-card">
+                    <div class="fpg-icon"><i class="fas fa-wheelchair"></i></div>
+                    <h3>Is the clinic fully wheelchair accessible?</h3>
+                    <div class="fpg-answer">
+                        <p>Yes, our entire facility is designed to be fully accessible, including dedicated parking
+                            spots, ramps, and spacious elevators for your absolute comfort.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <div class="contact-left">
+                <h2 class="contact-anim-left">Get in touch</h2>
+                <p class="contact-anim-left">Just fill out the form below and we will get back to you as soon as
+                    possible.</p>
+                <div class="contact-img contact-anim-left">
+                    <img src="./asset/q15.webp" alt="Doctors Team">
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <form id="getInTouchForm" class="touch-form">
+
+                    <div class="form-row-2 contact-anim-right">
+                        <div class="input-box">
+                            <input type="text" id="firstName" placeholder="First Name">
+                            <span class="error-msg" id="fNameError">Invalid characters (Letters, Space, -, '
+                                only).</span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="lastName" placeholder="Last Name">
+                            <span class="error-msg" id="lNameError">Invalid characters (Letters, Space, -, '
+                                only).</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2 contact-anim-right">
+                        <div class="input-box">
+                            <input type="email" id="contactEmail" placeholder="Enter your email">
+                            <span class="error-msg" id="cEmailError">Enter valid email.</span>
+                        </div>
+
+                        <div class="input-box">
+                            <div class="phone-flex" id="phoneWrapper">
+                                <select id="countryCode" class="country-select">
+                                    <option value="+91">IND</option>
+                                    <option value="+1">US</option>
+                                    <option value="+44">UK</option>
+                                </select>
+                                <input type="tel" id="contactPhone" placeholder="Enter your Phone" maxlength="10">
+                            </div>
+                            <span class="error-msg" id="cPhoneError">Exactly 10 digits required.</span>
+                        </div>
+                    </div>
+
+                    <div class="input-box contact-anim-right">
+                        <textarea id="contactDesc" rows="2" placeholder="Enter a description..."></textarea>
+                        <span class="error-msg" id="cDescError">Minimum 10 characters required.</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit contact-anim-right">Send <i
+                            class="fas fa-arrow-right"></i></button>
+
+
+                    <div id="contactSuccess" class="success-msg">
+                        <i class="fas fa-check-circle"></i> Message sent successfully! Redirecting...
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="footer-section">
+        <div class="footer-container">
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <a href="index.html" class="footer-logo">
+                    <img src="./asset/logo_bule.webp" alt="logo">
+                </a>
+
+
+                <div class="footer-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.161609877078!2d78.17140487386635!3d11.682956588526377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1791887742148!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin" class="google-map-iframe">
+                    </iframe>
+                </div>
+
+                <div class="social-icons">
+                    <a href="404page.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404page.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404page.html"><i class="fab fa-twitter"></i></a>
+                    <a href="404page.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="blog.html"><i class="fas fa-angle-right"></i> Blog</a></li>
+                    <li><a href="fqa.html"><i class="fas fa-angle-right"></i> FQAs</li>
+                    <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="footer-heading">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> General Practice</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Cardiology</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Pediatrics</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Dental Care</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Laboratory Services</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Emergency 24/7</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@thestackly.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98765 43210</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem</span>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <span>Mon - Sun: 24/7 Available</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 Stackly Healthcare. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404page.html">Privacy Policy</a>
+                    <a href="404page.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+
+
+
+        const faqSlides = document.querySelectorAll(".faq-slide");
+
+        if (faqSlides.length > 0 && typeof gsap !== 'undefined') {
+            let currentFaqSlide = 0;
+            const totalFaqSlides = faqSlides.length;
+
+            function animateFaqContent(index) {
+                const activeSlide = faqSlides[index];
+                const elementsToAnimate = activeSlide.querySelectorAll('.faq-anim-item');
+
+
+                gsap.set(elementsToAnimate, { y: 35, autoAlpha: 0 });
+
+
+                gsap.to(elementsToAnimate, {
+                    y: 0,
+                    autoAlpha: 1,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power3.out",
+                    delay: 0.3
+                });
+            }
+
+
+            animateFaqContent(0);
+
+
+            setInterval(() => {
+
+                faqSlides[currentFaqSlide].classList.remove('active');
+                const oldElements = faqSlides[currentFaqSlide].querySelectorAll('.faq-anim-item');
+                gsap.set(oldElements, { autoAlpha: 0 });
+
+
+                currentFaqSlide = (currentFaqSlide + 1) % totalFaqSlides;
+
+
+                faqSlides[currentFaqSlide].classList.add('active');
+                animateFaqContent(currentFaqSlide);
+
+            }, 6000);
+        }
+
+
+
+
+
+
+
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon i');
+
+
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = 0;
+                        otherItem.querySelector('.faq-icon i').className = 'fas fa-plus';
+                    }
+                });
+
+
+                item.classList.toggle('active');
+
+                if (item.classList.contains('active')) {
+
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.className = 'fas fa-minus';
+                } else {
+
+                    answer.style.maxHeight = 0;
+                    icon.className = 'fas fa-plus';
+                }
+            });
+        });
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".faq-acc-header", {
+                scrollTrigger: { trigger: ".faq-accordion-section", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, ease: "power3.out", clearProps: "all"
+            });
+
+
+            ScrollTrigger.batch(".faq-acc-anim", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "power3.out",
+                        clearProps: "all"
+                    });
+                }
+            });
+
+        }
+
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".fpg-anim", {
+                scrollTrigger: { trigger: ".faq-premium-grid", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", clearProps: "all"
+            });
+
+
+            ScrollTrigger.batch(".fpg-anim-card", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        y: 60,
+                        scale: 0.95,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "back.out(1.2)",
+                        clearProps: "all"
+                    });
+                }
+            });
+
+        }
+
+
+    </script>
+</body>
+
+</html>

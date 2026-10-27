@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Healthcare</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+
+    <div id="preloader">
+        <div class="loader-content">
+            <i class="fas fa-heartbeat heartbeat-loader"></i>
+            <span class="loader-text">STACKLY...</span>
+        </div>
+    </div>
+
+
+    <div class="top-bar" id="topBar">
+        <div class="marquee-container">
+            <p class="marquee-text">Get 20% off for first order. More information here.</p>
+        </div>
+        <button class="close-top-btn" id="closeTopBar">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+
+
+    <header class="header" id="mainHeader">
+        <nav class="navbar">
+
+            <a href="index.html" class="logo" data-aos="fade-right" data-aos-duration="1000">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+
+
+            <ul class="nav-links">
+                <li data-aos="fade-down" data-aos-delay="100"><a href="index.html" class="nav-item">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="about.html" class="nav-item">About Us</a></li>
+
+
+                <li class="dropdown" data-aos="fade-down" data-aos-delay="300">
+                    <a href="service.html" class="nav-item active">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+
+                    </ul>
+                </li>
+
+                <li data-aos="fade-down" data-aos-delay="400"><a href="blog.html" class="nav-item">Blog</a></li>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="fqa.html" class="nav-item">FQAs</a></li>
+                <li data-aos="fade-down" data-aos-delay="600"><a href="gallery.html" class="nav-item">Photo Gallery</a>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="contact.html" class="nav-item">Contact</a></li>
+
+                </li>
+            </ul>
+
+
+            <div class="nav-actions">
+                <a href="login.html" class="login-btn" data-aos="fade-left" data-aos-delay="700">Log In</a>
+                <a href="signup.html" class="signup-btn" data-aos="fade-left" data-aos-delay="800">Sign Up</a>
+            </div>
+
+
+            <div class="hamburger" id="hamburgerMenu" data-aos="fade-left" data-aos-duration="1000">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+            <div class="close-mobile-btn" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+
+        <div class="mobile-menu-body">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+
+
+                <li>
+                    <a href="service.html" class="active" class="mobile-services-link">Services <i
+                            class="fas fa-chevron-down mobile-dropdown-toggle" id="mobileServiceArrow"></i></a>
+                    <ul class="mobile-submenu" id="mobileSubmenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="fqa.html">FQAs</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <div class="mobile-auth">
+                <a href="login.html" class="login-btn">Log In</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="services-hero-section">
+
+
+        <div class="service-slide active">
+
+            <div class="srv-slide-bg" style="background-image: url('./asset/y1.webp');"></div>
+
+            <div class="srv-slide-overlay"></div>
+
+
+            <div class="srv-slide-content">
+                <div class="breadcrumb-card service-anim-item">
+                    <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Services</span>
+                </div>
+                <h1 class="service-anim-item">Comprehensive<br>Medical Services</h1>
+                <p class="service-anim-item">From preventive care to specialized treatments, our wide range of medical
+                    services is designed to meet all your healthcare needs under one roof with utmost dedication.</p>
+                <div class="srv-hero-buttons service-anim-item">
+                    <a href="404page.html" class="btn btn-primary">Book Appointment</a>
+                    <a href="404page.html" class="btn btn-outline-light">Explore Departments</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="service-slide">
+
+            <div class="srv-slide-bg" style="background-image: url('./asset/q8.webp');"></div>
+
+            <div class="srv-slide-overlay"></div>
+
+
+            <div class="srv-slide-content">
+                <div class="breadcrumb-card service-anim-item">
+                    <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Services</span>
+                </div>
+                <h1 class="service-anim-item">Advanced Diagnostic<br>& Emergency Care</h1>
+                <p class="service-anim-item">Equipped with state-of-the-art technology, we ensure precise and timely
+                    diagnostics. Our 24/7 emergency care unit is always ready to guide your personalized treatment plan.
+                </p>
+                <div class="srv-hero-buttons service-anim-item">
+                    <a href="404page.html" class="btn btn-primary">View Facilities</a>
+                    <a href="404page.html" class="btn btn-outline-light">Contact Us 24/7</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="services-offered-section">
+        <div class="so-container">
+
+
+            <div class="so-header">
+                <h5 class="so-anim-text">Lakeshore Gimli Medical Clinic</h5>
+                <h2 class="so-anim-text">Services offered</h2>
+            </div>
+
+
+            <div class="so-grid">
+
+
+                <div class="so-card so-anim-card">
+                    <div class="so-img">
+                        <img src="./asset/q4.webp" alt="Prescription Drugs">
+                    </div>
+                    <div class="so-content">
+                        <h3>Prescription Drugs Dispensing (Required by law in all Manitoba pharmacies)</h3>
+                        <p>Convenient Prescription Dispensing Services at Lakeshore gimli medical clinic</p>
+                        <a href="404page.html" class="btn-readmore">Read more</a>
+                    </div>
+                </div>
+
+
+                <div class="so-card so-anim-card">
+                    <div class="so-img">
+                        <img src="./asset/y3.webp" alt="Medication Review">
+                    </div>
+                    <div class="so-content">
+                        <h3>Medication Review</h3>
+                        <p>Optimize Your Health with Medication Review at Lakeshore gimli medical clinic</p>
+                        <a href="404page.html" class="btn-readmore">Read more</a>
+                    </div>
+                </div>
+
+
+                <div class="so-card so-anim-card">
+                    <div class="so-img">
+                        <img src="./asset/w5.webp" alt="Over-the-Counter Medications">
+                    </div>
+                    <div class="so-content">
+                        <h3>Over-the-Counter Medications</h3>
+                        <p>Discover a Wide Range of Over-the-Counter Medications at Lakeshore gimli medical clinic</p>
+                        <a href="404page.html" class="btn-readmore">Read more</a>
+                    </div>
+                </div>
+
+
+                <div class="so-card so-anim-card">
+                    <div class="so-img">
+                        <img src="./asset/y2.webp" alt="Unit-dosage Packaging">
+                    </div>
+                    <div class="so-content">
+                        <h3>Unit-dosage Packaging</h3>
+                        <p>Convenient and Reliable Unit-Dosage Packaging at Lakeshore gimli medical clinic</p>
+                        <a href="404page.html" class="btn-readmore">Read more</a>
+                    </div>
+                </div>
+
+
+                <div class="so-card so-anim-card">
+                    <div class="so-img">
+                        <img src="./asset/w4.webp" alt="Vaccinations and Injections">
+                    </div>
+                    <div class="so-content">
+                        <h3>Vaccinations and Injections of Medications</h3>
+                        <p>Comprehensive Vaccinations and Injection Services at Lakeshore gimli medical clinic</p>
+                        <a href="404page.html" class="btn-readmore">Read more</a>
+                    </div>
+                </div>
+
+
+                <div class="so-card so-anim-card">
+                    <div class="so-img">
+                        <img src="./asset/q17.webp" alt="Free City-Wide Delivery">
+                    </div>
+                    <div class="so-content">
+                        <h3>Free City-Wide Delivery</h3>
+                        <p>Convenient and Reliable Free City-Wide Delivery from Lakeshore gimli medical clinic</p>
+                        <a href="404page.html" class="btn-readmore">Read more</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="specialized-centers-section">
+        <div class="sc-container">
+
+
+            <div class="sc-header">
+                <h5 class="sc-anim-text">Excellence in Healthcare</h5>
+                <h2 class="sc-anim-text">Our Specialized Centers</h2>
+                <p class="sc-anim-text">Experience world-class treatments in our dedicated departments equipped with
+                    cutting-edge technology and renowned specialists.</p>
+            </div>
+
+
+            <div class="sc-flex-container">
+
+
+                <div class="sc-item sc-anim-card">
+                    <div class="sc-bg" style="background-image: url('./asset/q16.webp');"></div>
+                    <div class="sc-overlay"></div>
+                    <div class="sc-content">
+                        <div class="sc-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Cardiology</h3>
+                        <p class="sc-desc">Comprehensive heart care, from precise diagnostics to advanced surgical
+                            interventions, ensuring your heart beats stronger.</p>
+                    </div>
+                </div>
+
+
+                <div class="sc-item sc-anim-card">
+                    <div class="sc-bg" style="background-image: url('./asset/q4.webp');"></div>
+                    <div class="sc-overlay"></div>
+                    <div class="sc-content">
+                        <div class="sc-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Neurology</h3>
+                        <p class="sc-desc">Expert care for brain and nerve disorders, utilizing state-of-the-art
+                            neuro-imaging and innovative therapies.</p>
+                    </div>
+                </div>
+
+
+                <div class="sc-item sc-anim-card">
+                    <div class="sc-bg" style="background-image: url('./asset/w1.webp');"></div>
+                    <div class="sc-overlay"></div>
+                    <div class="sc-content">
+                        <div class="sc-icon"><i class="fas fa-bone"></i></div>
+                        <h3>Orthopedics</h3>
+                        <p class="sc-desc">Advanced bone and joint treatments, specialized in sports injuries, joint
+                            replacements, and physical rehabilitation.</p>
+                    </div>
+                </div>
+
+
+                <div class="sc-item sc-anim-card">
+                    <div class="sc-bg" style="background-image: url('./asset/y3.webp');"></div>
+                    <div class="sc-overlay"></div>
+                    <div class="sc-content">
+                        <div class="sc-icon"><i class="fas fa-baby"></i></div>
+                        <h3>Pediatrics</h3>
+                        <p class="sc-desc">Dedicated, compassionate healthcare for children, ensuring their healthy
+                            growth from infancy through adolescence.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="patient-experience-section">
+        <div class="pe-container">
+
+
+            <div class="pe-left pe-anim-image">
+
+
+                <div class="pe-image-wrapper">
+                    <img src="./asset/q10.webp" alt="Premium Healthcare">
+                </div>
+
+
+                <div class="pe-floating-badge">
+                    <div class="badge-icon"><i class="fas fa-user-nurse"></i></div>
+                    <div class="badge-text">
+                        <h4>24/7 Support</h4>
+                        <p>Always here for you</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="pe-right">
+                <h5 class="pe-anim-text">The Lakeshore Experience</h5>
+                <h2 class="pe-anim-text">Healthcare Redefined for Your Comfort</h2>
+                <p class="pe-anim-text">We blend medical excellence with a soothing, patient-first environment to ensure
+                    your journey to recovery is smooth, transparent, and comfortable.</p>
+
+
+                <div class="pe-timeline">
+
+                    <div class="pe-step pe-anim-step">
+                        <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="step-content">
+                            <h3>1. Seamless Booking</h3>
+                            <p>Effortlessly schedule your visits through our digital portal with zero wait-time policy
+                                and priority access.</p>
+                        </div>
+                    </div>
+
+                    <div class="pe-step pe-anim-step">
+                        <div class="step-icon"><i class="fas fa-stethoscope"></i></div>
+                        <div class="step-content">
+                            <h3>2. Personalized Consultation</h3>
+                            <p>Meet with our expert specialists for a comprehensive, one-on-one diagnosis tailored to
+                                your unique medical history.</p>
+                        </div>
+                    </div>
+
+                    <div class="pe-step pe-anim-step">
+                        <div class="step-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div class="step-content">
+                            <h3>3. Advanced Treatment</h3>
+                            <p>Experience cutting-edge medical care using state-of-the-art technology in our world-class
+                                facilities.</p>
+                        </div>
+                    </div>
+
+                    <div class="pe-step pe-anim-step">
+                        <div class="step-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="step-content">
+                            <h3>4. Post-Care & Recovery</h3>
+                            <p>Continuous monitoring and remote consultations to ensure a safe, speedy, and holistic
+                                recovery at home.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section class="emergency-cta-section">
+        <div class="em-container">
+
+
+            <div class="em-icon-box em-anim">
+                <div class="pulse-ring"></div>
+                <i class="fas fa-phone-volume"></i>
+            </div>
+
+
+            <div class="em-text em-anim">
+                <h2>Need Urgent Medical Care?</h2>
+                <p>Our emergency department and ambulance services are available 24/7. Don't hesitate to reach out for
+                    immediate assistance.</p>
+            </div>
+
+
+            <div class="em-btn-box em-anim">
+                <a href="404page.html" class="btn-emergency">Call Now: +91 98765 43210</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <div class="contact-left">
+                <h2 class="contact-anim-left">Get in touch</h2>
+                <p class="contact-anim-left">Just fill out the form below and we will get back to you as soon as
+                    possible.</p>
+                <div class="contact-img contact-anim-left">
+                    <img src="./asset/q15.webp" alt="Doctors Team">
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <form id="getInTouchForm" class="touch-form">
+
+                    <div class="form-row-2 contact-anim-right">
+                        <div class="input-box">
+                            <input type="text" id="firstName" placeholder="First Name">
+                            <span class="error-msg" id="fNameError">Invalid characters (Letters, Space, -, '
+                                only).</span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="lastName" placeholder="Last Name">
+                            <span class="error-msg" id="lNameError">Invalid characters (Letters, Space, -, '
+                                only).</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2 contact-anim-right">
+                        <div class="input-box">
+                            <input type="email" id="contactEmail" placeholder="Enter your email">
+                            <span class="error-msg" id="cEmailError">Enter valid email.</span>
+                        </div>
+
+                        <div class="input-box">
+                            <div class="phone-flex" id="phoneWrapper">
+                                <select id="countryCode" class="country-select">
+                                    <option value="+91">IND</option>
+                                    <option value="+1">US</option>
+                                    <option value="+44">UK</option>
+                                </select>
+                                <input type="tel" id="contactPhone" placeholder="Enter your Phone" maxlength="10">
+                            </div>
+                            <span class="error-msg" id="cPhoneError">Exactly 10 digits required.</span>
+                        </div>
+                    </div>
+
+                    <div class="input-box contact-anim-right">
+                        <textarea id="contactDesc" rows="2" placeholder="Enter a description..."></textarea>
+                        <span class="error-msg" id="cDescError">Minimum 10 characters required.</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit contact-anim-right">Send <i
+                            class="fas fa-arrow-right"></i></button>
+
+
+                    <div id="contactSuccess" class="success-msg">
+                        <i class="fas fa-check-circle"></i> Message sent successfully! Redirecting...
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="footer-section">
+        <div class="footer-container">
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <a href="index.html" class="footer-logo">
+                    <img src="./asset/logo_bule.webp" alt="logo">
+                </a>
+
+
+                <div class="footer-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.161609877078!2d78.17140487386635!3d11.682956588526377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1791887742148!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin" class="google-map-iframe">
+                    </iframe>
+                </div>
+
+                <div class="social-icons">
+                    <a href="404page.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404page.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404page.html"><i class="fab fa-twitter"></i></a>
+                    <a href="404page.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="blog.html"><i class="fas fa-angle-right"></i> Blog</a></li>
+                    <li><a href="fqa.html"><i class="fas fa-angle-right"></i> FQAs</li>
+                    <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="footer-heading">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> General Practice</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Cardiology</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Pediatrics</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Dental Care</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Laboratory Services</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Emergency 24/7</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@thestackly.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98765 43210</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem</span>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <span>Mon - Sun: 24/7 Available</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 Stackly Healthcare. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404page.html">Privacy Policy</a>
+                    <a href="404page.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            if (typeof gsap !== 'undefined') {
+
+                const srvSlides = document.querySelectorAll(".service-slide");
+                if (srvSlides.length > 0) {
+                    const totalSrvSlides = srvSlides.length;
+                    let currentSrvSlide = 0;
+
+
+                    function animateServiceContent(index) {
+                        const activeSlide = srvSlides[index];
+                        const elementsToAnimate = activeSlide.querySelectorAll('.service-anim-item');
+
+
+                        gsap.set(elementsToAnimate, { y: 40, autoAlpha: 0 });
+
+
+                        gsap.to(elementsToAnimate, {
+                            y: 0,
+                            autoAlpha: 1,
+                            duration: 1,
+                            stagger: 0.2,
+                            ease: "power3.out",
+                            delay: 0.3
+                        });
+                    }
+
+
+                    animateServiceContent(0);
+
+
+                    setInterval(() => {
+
+
+                        srvSlides[currentSrvSlide].classList.remove('active');
+                        const oldElements = srvSlides[currentSrvSlide].querySelectorAll('.service-anim-item');
+                        gsap.set(oldElements, { autoAlpha: 0 });
+
+
+                        currentSrvSlide = (currentSrvSlide + 1) % totalSrvSlides;
+
+
+                        srvSlides[currentSrvSlide].classList.add('active');
+
+
+                        animateServiceContent(currentSrvSlide);
+
+                    }, 6000);
+                }
+            }
+
+        });
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".so-anim-text", {
+                scrollTrigger: { trigger: ".services-offered-section", start: "top 80%" },
+                y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", clearProps: "all"
+            });
+
+
+
+            gsap.set(".so-anim-card", { rotationY: 90, autoAlpha: 0 });
+
+
+            ScrollTrigger.batch(".so-anim-card", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.to(batch, {
+                        rotationY: 0,
+                        autoAlpha: 1,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "back.out(1.2)",
+                        clearProps: "all"
+                    });
+                }
+            });
+
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".sc-anim-text", {
+                scrollTrigger: { trigger: ".specialized-centers-section", start: "top 80%" },
+                y: 40, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", clearProps: "all"
+            });
+
+
+            ScrollTrigger.batch(".sc-anim-card", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "power3.out",
+                        clearProps: "transform,opacity"
+                    });
+                }
+            });
+
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".pe-anim-image", {
+                scrollTrigger: { trigger: ".patient-experience-section", start: "top 75%" },
+                x: -60,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                clearProps: "all"
+            });
+
+
+            gsap.from(".pe-anim-text", {
+                scrollTrigger: { trigger: ".pe-right", start: "top 80%" },
+                x: 60,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out",
+                clearProps: "all"
+            });
+
+
+            gsap.from(".pe-anim-step", {
+                scrollTrigger: { trigger: ".pe-timeline", start: "top 80%" },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "back.out(1.2)",
+                clearProps: "all"
+            });
+
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.set(".em-anim", { y: 50, autoAlpha: 0 });
+
+
+            const emTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".emergency-cta-section",
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+
+            emTl.to(".em-anim", {
+                y: 0,
+                autoAlpha: 1,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "back.out(1.2)",
+                clearProps: "all"
+            });
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

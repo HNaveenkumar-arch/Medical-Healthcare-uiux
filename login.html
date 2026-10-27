@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Login</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        .login-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+
+        .login-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 8%;
+            position: relative;
+            background-color: #ffffff;
+            justify-content: center;
+        }
+
+
+        .back-home-btn {
+            position: absolute;
+            top: 40px;
+            left: 8%;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0f172a;
+            background-color: #f1f5f9;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 10;
+        }
+
+        .back-home-btn:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            transform: translateY(-4px);
+
+        }
+
+
+        .login-form-wrapper {
+            max-width: 450px;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 50px;
+            z-index: 5;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .brand-logo img {
+            width: 170px;
+        }
+
+        .login-form-wrapper h1 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .login-form-wrapper p {
+            color: #64748b;
+            font-size: 15px;
+            margin-bottom: 35px;
+        }
+
+
+        .role-selection {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .role-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .role-option input {
+            display: none;
+        }
+
+        .role-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+
+        .role-label:hover {
+            border-color: #93c5fd;
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .role-option input:checked+.role-label {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+        }
+
+        #roleError {
+            color: #ef4444;
+            font-size: 13px;
+            display: none;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .input-header label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #0f172a;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .input-wrapper input[type="password"]::-ms-reveal,
+        .input-wrapper input[type="password"]::-ms-clear {
+            display: none;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .eye-icon:hover {
+            color: #2563eb;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-wrapper input.error-field {
+            border-color: #ef4444 !important;
+        }
+
+        .input-wrapper input.success-field {
+            border-color: #10b981 !important;
+        }
+
+        .error-msg {
+            font-size: 13px;
+            color: #ef4444;
+            display: none;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+
+        .password-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            margin-top: -5px;
+        }
+
+        .forgot-link {
+            font-size: 13.5px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .remember-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .remember-group input {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .remember-group label {
+            font-size: 13.5px;
+            color: #475569;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .remember-group:hover label {
+            color: #0f172a;
+        }
+
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+            position: relative;
+            z-index: 5;
+        }
+
+        .btn-login:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-social {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #0f172a;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+        }
+
+
+        .google-icon {
+            color: #DB4437;
+            font-size: 18px;
+            transition: color 0.4s ease;
+        }
+
+        .apple-icon {
+            color: #000000;
+            font-size: 20px;
+            transition: color 0.4s ease;
+        }
+
+
+        .btn-social:hover {
+            background-color: #2563eb;
+
+            color: #ffffff;
+
+            border-color: #2563eb;
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+
+        }
+
+
+        .btn-social:hover .google-icon,
+        .btn-social:hover .apple-icon {
+            color: #ffffff;
+        }
+
+        .signup-link {
+            text-align: center;
+            font-size: 15px;
+            color: #475569;
+        }
+
+        .signup-link a {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+
+        .login-right {
+            flex: 1.2;
+            position: relative;
+            border-radius: 40px 0 0 40px;
+            overflow: hidden;
+            box-shadow: -20px 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: #10b981;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .toast-msg.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .login-right {
+                display: none;
+            }
+
+            .login-left {
+                padding: 30px 5%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .login-form-wrapper h1 {
+                font-size: 28px;
+            }
+
+            .role-selection {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+
+            .back-home-btn {
+                top: 20px;
+                left: 5%;
+            }
+
+            .login-form-wrapper {
+                margin-top: 60px;
+            }
+
+            .password-options {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+
+        <div class="login-left">
+            <a href="index.html" class="back-home-btn anim-item"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+            <div class="login-form-wrapper">
+
+                <div class="brand-logo anim-item">
+                    <a href="index.html"><img src="./asset/logo_bule.webp" alt="logo"></a>
+                </div>
+
+                <h1 class="anim-item">Welcome back!</h1>
+                <p class="anim-item">Enter your Credentials to access your account</p>
+
+                <form id="loginForm" novalidate>
+
+
+                    <div class="role-selection anim-item">
+                        <div class="role-option">
+                            <input type="radio" name="userRole" id="rolePatient" value="patient">
+                            <label for="rolePatient" class="role-label"><i class="fas fa-user"></i> Patient</label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" name="userRole" id="roleDoctor" value="doctor">
+                            <label for="roleDoctor" class="role-label"><i class="fas fa-user-md"></i> Doctor</label>
+                        </div>
+                    </div>
+                    <div id="roleError">Please select your role.</div>
+
+
+                    <div class="input-group anim-item">
+                        <div class="input-header"><label>Email address</label></div>
+                        <div class="input-wrapper">
+                            <input type="email" id="loginEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="error-msg" id="emailError">Please enter a valid email.</div>
+                    </div>
+
+
+                    <div class="input-group anim-item" style="margin-bottom: 10px;">
+                        <div class="input-header"><label>Password</label></div>
+                        <div class="input-wrapper">
+                            <input type="password" id="loginPassword" placeholder="Enter your password">
+                            <i class="fas fa-eye-slash eye-icon" id="togglePassword"></i>
+                        </div>
+                        <div class="error-msg" id="passwordError">Password must be at least 6 characters.</div>
+                    </div>
+
+
+                    <div class="password-options anim-item">
+                        <a href="404page.html" class="forgot-link">Forgot password?</a>
+                        <div class="remember-group">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Remember for 30 days</label>
+                        </div>
+                    </div>
+
+
+                    <div class="anim-item">
+                        <button type="submit" class="btn-login">Login</button>
+                    </div>
+
+                    <div class="divider anim-item"><span>Or</span></div>
+
+
+                    <div class="social-login anim-item">
+                        <button type="button" onclick="window.location.href='404page.html'" class="btn-social">
+                            <i class="fab fa-google google-icon"></i> Sign in with Google
+                        </button>
+                        <button type="button" onclick="window.location.href='404page.html'" class="btn-social">
+                            <i class="fab fa-apple apple-icon"></i> Sign in with Apple
+                        </button>
+                    </div>
+
+                    <div class="signup-link anim-item">
+                        Don't have an account? <a href="signup.html">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="login-right">
+            <img src="./asset/q10.webp" alt="Medical Professional">
+        </div>
+
+    </div>
+
+
+    <div class="toast-msg" id="loginToast">
+        <i class="fas fa-check-circle"></i> Login Successful! Redirecting...
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            gsap.from(".anim-item", { y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out" });
+            gsap.from(".login-right", { x: 100, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.2 });
+
+            const togglePassword = document.getElementById("togglePassword");
+            const passwordInput = document.getElementById("loginPassword");
+
+            togglePassword.addEventListener("click", function () {
+                const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                passwordInput.setAttribute("type", type);
+                this.classList.toggle("fa-eye");
+                this.classList.toggle("fa-eye-slash");
+            });
+
+            const form = document.getElementById("loginForm");
+            const emailInput = document.getElementById("loginEmail");
+            const roles = document.getElementsByName("userRole");
+            const toast = document.getElementById("loginToast");
+
+            function validateInput(input, isValid, errorId) {
+                const errorEl = document.getElementById(errorId);
+                if (input.value.trim() === "") {
+                    input.classList.remove("error-field", "success-field");
+                    errorEl.style.display = "none";
+                } else if (isValid) {
+                    input.classList.remove("error-field");
+                    input.classList.add("success-field");
+                    errorEl.style.display = "none";
+                } else {
+                    input.classList.remove("success-field");
+                    input.classList.add("error-field");
+                    errorEl.style.display = "block";
+                }
+                return isValid;
+            }
+
+            emailInput.addEventListener("input", function () {
+                validateInput(this, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim()), "emailError");
+            });
+
+            passwordInput.addEventListener("input", function () {
+                validateInput(this, this.value.trim().length >= 6, "passwordError");
+            });
+
+            roles.forEach(role => {
+                role.addEventListener("change", () => document.getElementById("roleError").style.display = "none");
+            });
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                let isFormValid = true;
+
+                let selectedRole = null;
+                roles.forEach(r => { if (r.checked) selectedRole = r.value; });
+                if (!selectedRole) { document.getElementById("roleError").style.display = "block"; isFormValid = false; }
+
+                const isEmailValid = validateInput(emailInput, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()), "emailError");
+                if (emailInput.value.trim() === "") { emailInput.classList.add("error-field"); document.getElementById("emailError").style.display = "block"; }
+                isFormValid = isFormValid && isEmailValid && emailInput.value.trim() !== "";
+
+                const isPassValid = validateInput(passwordInput, passwordInput.value.trim().length >= 6, "passwordError");
+                if (passwordInput.value.trim() === "") { passwordInput.classList.add("error-field"); document.getElementById("passwordError").style.display = "block"; }
+                isFormValid = isFormValid && isPassValid && passwordInput.value.trim() !== "";
+
+                if (isFormValid) {
+
+
+
+
+
+                    localStorage.setItem('userEmail', emailInput.value.trim());
+
+                    toast.classList.add("show");
+                    setTimeout(() => {
+                        window.location.href = selectedRole === "doctor" ? "doctor-dashboard.html" : "patient-dashboard.html";
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

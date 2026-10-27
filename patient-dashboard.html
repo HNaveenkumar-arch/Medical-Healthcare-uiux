@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Patient Dashboard</title>
+
+    <script>
+        if (!localStorage.getItem('userEmail')) {
+            window.location.replace("login.html");
+        }
+    </script>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="patient-dashboard.css">
+</head>
+
+<body>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <a href="index.html"><img src="./asset/logo_bule.webp" alt="logo"></a>
+            <div class="dashboard-badge"><i class="fas fa-user"></i> Patient Dashboard</div>
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-item active" onclick="switchTab('tab-overview', this, 'Patient Overview')">
+                <i class="fas fa-chart-pie"></i> Overview
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-appointments', this, 'My Appointments')">
+                <i class="fas fa-calendar-check"></i> Appointments
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-records', this, 'Medical Records')">
+                <i class="fas fa-notes-medical"></i> Medical Records
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-prescriptions', this, 'Prescriptions')">
+                <i class="fas fa-pills"></i> Prescriptions
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-billing', this, 'Billing & Invoices')">
+                <i class="fas fa-file-invoice-dollar"></i> Billing
+            </div>
+            <div class="nav-item" onclick="switchTab('tab-settings', this, 'Profile Details')">
+                <i class="fas fa-id-card"></i> Profile Info
+            </div>
+        </div>
+
+        <div class="sidebar-profile">
+            <div class="profile-img-box"><i class="fas fa-user"></i></div>
+            <div class="profile-details">
+                <h4 id="sidebarName">Patient</h4>
+                <p id="sidebarEmail">patient@example.com</p>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="main-wrapper">
+
+
+        <header class="top-header">
+            <div class="header-left">
+                <i class="fas fa-bars menu-toggle" onclick="toggleSidebar()"></i>
+                <h2 id="pageTitle" class="page-title">Patient Overview</h2>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="header-btn btn-home"><i class="fas fa-home"></i> <span
+                        class="hide-mobile">Home</span></a>
+                <button onclick="logout()" class="header-btn btn-logout"><i class="fas fa-sign-out-alt"></i> <span
+                        class="hide-mobile">Logout</span></button>
+            </div>
+        </header>
+
+        <div class="dashboard-body">
+
+            <div id="tab-overview" class="content-tab active">
+                <div class="grid-4">
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="stat-icon bg-blue"><i class="fas fa-heartbeat"></i></div>
+                        <div class="stat-info">
+                            <p>Blood Pressure</p>
+                            <h3>120/80</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon bg-green"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-info">
+                            <p>Next Visit</p>
+                            <h3>Oct 28</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon bg-gold"><i class="fas fa-vial"></i></div>
+                        <div class="stat-info">
+                            <p>Pending Reports</p>
+                            <h3>2 Reports</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon bg-red"><i class="fas fa-fire"></i></div>
+                        <div class="stat-info">
+                            <p>Calories Burned</p>
+                            <h3>1,250</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-right">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-chart-line"></i> Blood Sugar Levels</h3>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="healthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-running"></i> Weekly Health Goals</h3>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Daily Steps (8.5k/10k)</span><span>85%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-blue" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Water Intake (2L/3L)</span><span>66%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-blue" style="width: 66%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Sleep Cycle (6h/8h)</span><span>75%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-gold" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Protein Intake</span><span>90%</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-green" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q14.webp" alt="Diet Plan">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-apple-alt"></i> Personalized Diet Plan</h3>
+                            <p>Eat healthy, live healthy. Strictly follow Dr. Sarah's customized recommendations.</p>
+                            <button onclick="window.location.href='404page.html'" class="btn-action bg-blue mt-2">View
+                                Full Plan</button>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-list"></i> Weekly Diet Chart</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Meal Time</th>
+                                        <th>Recommended Diet</th>
+                                        <th>Calories</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Breakfast</td>
+                                        <td>Oatmeal & Fruits</td>
+                                        <td>350 kcal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lunch</td>
+                                        <td>Grilled Chicken Salad</td>
+                                        <td>450 kcal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Snacks</td>
+                                        <td>Green Tea & Almonds</td>
+                                        <td>150 kcal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dinner</td>
+                                        <td>Steamed Veggies & Soup</td>
+                                        <td>250 kcal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-user-md"></i> Doctor's Summary</h3>
+                        </div>
+                        <div class="info-box bg-light-blue">
+                            <h4 class="text-blue mb-2">Overall Health: Stable</h4>
+                            <p class="text-muted" style="line-height:1.8;">Patient is responding well to medication.
+                                Blood pressure is under control.</p>
+                        </div>
+                        <ul class="styled-list mt-3">
+                            <li><i class="fas fa-check-circle text-green"></i> Continue daily 30-min walk.</li>
+                            <li><i class="fas fa-check-circle text-green"></i> Avoid deep-fried foods.</li>
+                            <li><i class="fas fa-check-circle text-green"></i> Next blood test in 3 months.</li>
+                        </ul>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-bell"></i> Daily Reminders</h3>
+                        </div>
+                        <div class="timeline-list">
+                            <div class="timeline-item"><i class="fas fa-pills text-blue"></i>
+                                <div>
+                                    <h4>Morning Medication</h4>
+                                    <p>Take Amoxicillin before breakfast.</p>
+                                </div><span class="badge bg-green ms-auto">Done</span>
+                            </div>
+                            <div class="timeline-item"><i class="fas fa-tint text-blue"></i>
+                                <div>
+                                    <h4>Hydration Alert</h4>
+                                    <p>Drink 2 glasses of water.</p>
+                                </div><span class="badge bg-gold ms-auto">Pending</span>
+                            </div>
+                            <div class="timeline-item"><i class="fas fa-running text-blue"></i>
+                                <div>
+                                    <h4>Evening Walk</h4>
+                                    <p>Complete 30 mins of cardio.</p>
+                                </div><span class="badge bg-red ms-auto">Missed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-appointments" class="content-tab">
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q16.webp" alt="Doctor Profile">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-user-md"></i> Dr. Sarah Jenkins</h3>
+                            <p>Senior Cardiologist with 15+ years of experience. Top-rated by our patients.</p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-history"></i> Past Appointments</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Doctor</th>
+                                        <th>Dept</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sep 15, 2026</td>
+                                        <td>Dr. Alan</td>
+                                        <td>Orthopedics</td>
+                                        <td><span class="badge bg-green">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aug 02, 2026</td>
+                                        <td>Dr. Sarah</td>
+                                        <td>Cardiology</td>
+                                        <td><span class="badge bg-green">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 20, 2026</td>
+                                        <td>Dr. Mike</td>
+                                        <td>General</td>
+                                        <td><span class="badge bg-red">Cancelled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jun 10, 2026</td>
+                                        <td>Dr. Emily</td>
+                                        <td>Dentistry</td>
+                                        <td><span class="badge bg-green">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-right">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-clock"></i> Upcoming Schedule</h3>
+                        </div>
+                        <div class="timeline-list">
+                            <div class="timeline-item border-left-blue">
+                                <div>
+                                    <h4 class="text-blue">Cardiology Checkup</h4>
+                                    <p>Dr. Sarah Jenkins • Oct 28, 10:30 AM</p>
+                                </div><button onclick="window.location.href='404page.html'"
+                                    class="btn-action bg-blue ms-auto">Join Video</button>
+                            </div>
+                            <div class="timeline-item border-left-gold mt-3">
+                                <div>
+                                    <h4 class="text-gold">Dental Cleaning</h4>
+                                    <p>Dr. Emily Clark • Nov 05, 02:00 PM</p>
+                                </div><span class="badge bg-gold ms-auto">In-Person</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-clipboard-check"></i> Pre-visit Instructions</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><i class="fas fa-exclamation-circle text-red"></i> Fasting required for 8 hours before
+                                blood test.</li>
+                            <li><i class="fas fa-info-circle text-blue"></i> Bring previous MRI scan reports physically.
+                            </li>
+                            <li><i class="fas fa-info-circle text-blue"></i> Arrive 15 minutes early for verification.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-user-plus"></i> Specialist Referrals</h3>
+                        </div>
+                        <div class="info-box bg-light-green mb-3">
+                            <h4 class="text-green mb-1">Referral for Physiotherapy</h4>
+                            <p class="text-muted">Referred by Dr. Alan for post-knee surgery recovery.</p>
+                        </div>
+                        <button onclick="window.location.href='404page.html'" class="btn-action bg-blue w-100">Book
+                            Referred Doctor</button>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-video"></i> Video Consultation Info</h3>
+                        </div>
+                        <p class="text-muted mb-3">Your upcoming telemedicine appointments are securely hosted. Test
+                            your mic and camera before joining.</p>
+                        <div class="action-list">
+                            <div class="action-item"><i class="fas fa-microphone text-green fa-2x"></i>
+                                <div>
+                                    <h4>Microphone</h4>
+                                    <p>Working</p>
+                                </div>
+                            </div>
+                            <div class="action-item"><i class="fas fa-camera text-blue fa-2x"></i>
+                                <div>
+                                    <h4>Webcam</h4>
+                                    <p>Ready</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-records" class="content-tab">
+                <div class="grid-3">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-allergies text-red"></i> Known Allergies</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><i class="fas fa-times-circle text-red"></i> Penicillin (Severe)</li>
+                            <li><i class="fas fa-exclamation-triangle text-gold"></i> Peanuts (Mild)</li>
+                        </ul>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-syringe text-green"></i> Vaccinations</h3>
+                        </div>
+                        <div class="timeline-list">
+                            <div class="timeline-item">
+                                <div>
+                                    <h4>COVID-19 Booster</h4>
+                                    <p>Jan 15, 2026</p>
+                                </div><i class="fas fa-check text-green ms-auto"></i>
+                            </div>
+                            <div class="timeline-item mt-2">
+                                <div>
+                                    <h4>Flu Shot</h4>
+                                    <p>Oct 10, 2025</p>
+                                </div><i class="fas fa-check text-green ms-auto"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="200">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-weight text-blue"></i> Latest Vitals</h3>
+                        </div>
+                        <p class="mb-2"><strong>Height:</strong> 175 cm</p>
+                        <p class="mb-2"><strong>Weight:</strong> 72 kg</p>
+                        <p class="mb-2"><strong>BMI:</strong> 23.5 <span class="badge bg-green">Normal</span></p>
+                        <p><strong>Blood:</strong> O+ve</p>
+                    </div>
+                </div>
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/w2.webp" alt="Lab Insights">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-microscope"></i> Lab Insights</h3>
+                            <p>Understand your medical reports better with our advanced AI health summary.</p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-folder-open"></i> EHR Documents</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Record Type</th>
+                                        <th>Size</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Oct 15, 2026</td>
+                                        <td>Blood Test</td>
+                                        <td>1.2 MB</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sep 10, 2026</td>
+                                        <td>Chest X-Ray</td>
+                                        <td>4.5 MB</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aug 05, 2026</td>
+                                        <td>Discharge</td>
+                                        <td>0.8 MB</td>
+                                        <td><button onclick="window.location.href='404page.html'"
+                                                class="btn-action bg-blue"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-users"></i> Family Health History</h3>
+                        </div>
+                        <div class="timeline-list">
+                            <div class="timeline-item border-left-red">
+                                <div>
+                                    <h4 class="text-red">Type 2 Diabetes</h4>
+                                    <p>Paternal History - Monitored Annually</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item border-left-gold mt-3">
+                                <div>
+                                    <h4 class="text-gold">Hypertension</h4>
+                                    <p>Maternal History - Monitored Monthly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-dna"></i> Body Composition Summary</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Value</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Body Fat %</td>
+                                        <td>18%</td>
+                                        <td><span class="badge bg-green">Ideal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Muscle Mass</td>
+                                        <td>34 kg</td>
+                                        <td><span class="badge bg-blue">Good</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bone Mass</td>
+                                        <td>3.2 kg</td>
+                                        <td><span class="badge bg-green">Normal</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-prescriptions" class="content-tab">
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q5.webp" alt="Pharmacy">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-store"></i> 24/7 Digital Pharmacy</h3>
+                            <p>All your prescribed medicines are verified and logged in our secure system.</p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-history"></i> Refill Log History</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Medication</th>
+                                        <th>Date</th>
+                                        <th>Qty</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lisinopril 10mg</td>
+                                        <td>Sep 10, 2026</td>
+                                        <td>30 Pills</td>
+                                        <td><span class="badge bg-green">Delivered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vitamin D3</td>
+                                        <td>Aug 05, 2026</td>
+                                        <td>10 Pills</td>
+                                        <td><span class="badge bg-green">Delivered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Amoxicillin</td>
+                                        <td>Oct 20, 2026</td>
+                                        <td>15 Pills</td>
+                                        <td><span class="badge bg-gold">Processing</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-right">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-capsules"></i> Active Prescriptions</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item border-left-green bg-light-green"><i
+                                    class="fas fa-pills fa-2x text-green"></i>
+                                <div>
+                                    <h4 class="text-green">Amoxicillin 500mg</h4>
+                                    <p>Antibiotic • Ends Nov 10</p>
+                                </div>
+                            </div>
+                            <div class="action-item border-left-blue"><i class="fas fa-tablets fa-2x text-blue"></i>
+                                <div>
+                                    <h4 class="text-blue">Lisinopril 10mg</h4>
+                                    <p>BP Control • Ongoing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-clock"></i> Daily Dosage Schedule</h3>
+                        </div>
+                        <div class="timeline-list">
+                            <div class="timeline-item">
+                                <div>
+                                    <h4>08:00 AM (After Breakfast)</h4>
+                                    <p>1x Amoxicillin 500mg</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item mt-3">
+                                <div>
+                                    <h4>09:00 PM (Before Sleep)</h4>
+                                    <p>1x Lisinopril 10mg</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-truck-loading"></i> Pharmacy Delivery Tracker</h3>
+                        </div>
+                        <div class="progress-block mt-3">
+                            <div class="prog-head"><span>Order #PH-9088 (Amoxicillin)</span><span>Out for
+                                    Delivery</span></div>
+                            <div class="prog-bg">
+                                <div class="prog-fill bg-gold" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-3"><i class="fas fa-map-marker-alt text-blue"></i> Expected arrival at
+                            your doorstep by 04:30 PM today.</p>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-shield-virus"></i> Drug Interactions</h3>
+                        </div>
+                        <div class="info-box bg-light-red mb-3">
+                            <h4 class="text-red mb-1">Warning: Antacids</h4>
+                            <p class="text-muted">Do not take antacids within 2 hours of taking your Amoxicillin as it
+                                reduces absorption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-billing" class="content-tab">
+                <div class="grid-3">
+                    <div class="premium-panel stat-card" data-aos="fade-up">
+                        <div class="stat-icon bg-red"><i class="fas fa-money-bill"></i></div>
+                        <div class="stat-info">
+                            <p>Due Balance</p>
+                            <h3>$45.00</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon bg-green"><i class="fas fa-check-double"></i></div>
+                        <div class="stat-info">
+                            <p>Paid (YTD)</p>
+                            <h3>$1,240.00</h3>
+                        </div>
+                    </div>
+                    <div class="premium-panel stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon bg-blue"><i class="fas fa-shield-alt"></i></div>
+                        <div class="stat-info">
+                            <p>Insurance Limit</p>
+                            <h3>$5k / $10k</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q21.webp" alt="Insurance">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-file-contract"></i> BlueCross Coverage</h3>
+                            <p>Your premium health insurance covers 100% of lab tests and 80% of pharmacy bills.</p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-file-invoice"></i> Recent Invoices</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Invoice ID</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#INV-8890</td>
+                                        <td>Consultation</td>
+                                        <td>$45.00</td>
+                                        <td><span class="badge bg-red">Unpaid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#INV-8750</td>
+                                        <td>Blood Test</td>
+                                        <td>$120.00</td>
+                                        <td><span class="badge bg-green">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#INV-8600</td>
+                                        <td>X-Ray</td>
+                                        <td>$85.00</td>
+                                        <td><span class="badge bg-green">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#INV-8500</td>
+                                        <td>Pharmacy</td>
+                                        <td>$32.00</td>
+                                        <td><span class="badge bg-green">Paid</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-credit-card"></i> Saved Payment Methods</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item"><i class="fab fa-cc-visa fa-2x text-blue"></i>
+                                <div>
+                                    <h4>Visa ending in 4242</h4>
+                                    <p>Expires 12/28 • Default</p>
+                                </div><i class="fas fa-check-circle text-green ms-auto"></i>
+                            </div>
+                            <div class="action-item"><i class="fab fa-cc-mastercard fa-2x text-red"></i>
+                                <div>
+                                    <h4>Mastercard ending in 5555</h4>
+                                    <p>Expires 08/26</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-piggy-bank"></i> Health Savings Account (HSA)</h3>
+                        </div>
+                        <div class="info-box bg-light-green mb-3">
+                            <h4 class="text-green mb-1">Available HSA Funds: $850.00</h4>
+                            <p class="text-muted">You can use your HSA funds to clear the pending $45.00 due balance
+                                tax-free.</p>
+                        </div>
+                        <button onclick="window.location.href='404page.html'" class="btn-action bg-green w-100">Pay with
+                            HSA</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-settings" class="content-tab">
+                <div class="grid-2-custom">
+                    <div class="img-card h-100" data-aos="zoom-in">
+                        <img src="./asset/q17.webp" alt="Security">
+                        <div class="img-card-content">
+                            <h3><i class="fas fa-shield-alt"></i> Data Privacy Assured</h3>
+                            <p>Your medical records and personal details are encrypted and stored securely.</p>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-left">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-laptop"></i> Login Activity</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Device</th>
+                                        <th>Location</th>
+                                        <th>Date & Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Windows 11 PC</td>
+                                        <td>Chennai, IN</td>
+                                        <td>Today, 10:30 AM</td>
+                                        <td><span class="badge bg-green">Current</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>iPhone 14</td>
+                                        <td>Chennai, IN</td>
+                                        <td>Yesterday, 8:15 PM</td>
+                                        <td><span class="badge bg-blue">Verified</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>MacBook Air</td>
+                                        <td>Madurai, IN</td>
+                                        <td>Oct 15, 2026</td>
+                                        <td><span class="badge bg-blue">Verified</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-id-badge"></i> Personal Information</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong><i class="fas fa-user text-blue w-20"></i> Name:</strong> <span
+                                    id="infoName">Patient</span></li>
+                            <li><strong><i class="fas fa-envelope text-blue w-20"></i> Email:</strong> <span
+                                    id="infoEmail">email@domain.com</span></li>
+                            <li><strong><i class="fas fa-phone text-blue w-20"></i> Phone:</strong> +1 (555) 000-0000
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-phone-alt"></i> Emergency Contacts</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item border-left-red bg-light-red">
+                                <div>
+                                    <h4 class="text-red">Jane Doe (Spouse)</h4>
+                                    <p>Primary • +1 (987) 654-3210</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid-2">
+                    <div class="premium-panel h-100" data-aos="fade-up">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-watch"></i> Connected Wearables</h3>
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item"><i class="fab fa-apple fa-2x text-secondary"></i>
+                                <div>
+                                    <h4>Apple Health App</h4>
+                                    <p>Syncing Steps & Heart Rate</p>
+                                </div><span class="badge bg-green ms-auto">Connected</span>
+                            </div>
+                            <div class="action-item"><i class="fas fa-heartbeat fa-2x text-red"></i>
+                                <div>
+                                    <h4>Fitbit Tracker</h4>
+                                    <p>Last synced: 2 days ago</p>
+                                </div><button onclick="window.location.href='404page.html'"
+                                    class="btn-action bg-blue ms-auto">Sync Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-panel h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-fingerprint"></i> Security & 2FA</h3>
+                        </div>
+                        <ul class="styled-list">
+                            <li><i class="fas fa-toggle-on text-green fa-lg w-20"></i> Two-Factor Auth (SMS Enabled)
+                            </li>
+                            <li><i class="fas fa-toggle-on text-green fa-lg w-20"></i> Email Login Alerts (Enabled)</li>
+                            <li><i class="fas fa-toggle-off text-muted fa-lg w-20"></i> Biometric App Unlock (Disabled)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+
+
+
+
+        let healthChartInstance = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const storedEmail = localStorage.getItem('userEmail');
+            if (storedEmail) {
+                let extractedName = storedEmail.split('@')[0];
+                extractedName = extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+
+                const sideName = document.getElementById("sidebarName");
+                const sideEmail = document.getElementById("sidebarEmail");
+                const infoName = document.getElementById("infoName");
+                const infoEmail = document.getElementById("infoEmail");
+
+                if (sideName) sideName.textContent = extractedName;
+                if (sideEmail) sideEmail.textContent = storedEmail;
+                if (infoName) infoName.textContent = extractedName;
+                if (infoEmail) infoEmail.textContent = storedEmail;
+            }
+
+
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: false,
+                    offset: 20,
+                    easing: 'ease-out-cubic',
+                    disable: window.innerWidth < 768
+                });
+            }
+
+
+            setTimeout(() => {
+                if (typeof AOS !== 'undefined') {
+                    AOS.refreshHard();
+                    window.dispatchEvent(new Event('scroll'));
+                }
+                initHealthChart();
+            }, 150);
+        });
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            sidebar.classList.toggle('mobile-open');
+            if (sidebar.classList.contains('mobile-open')) {
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+
+        function switchTab(tabId, element, pageTitle) {
+
+
+            document.querySelectorAll('.content-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.querySelectorAll('[data-aos]').forEach(el => {
+                    el.classList.remove('aos-animate');
+                });
+            });
+
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.remove('active');
+            });
+
+
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+            element.classList.add('active');
+            document.getElementById('pageTitle').innerText = pageTitle;
+
+
+            if (tabId === 'tab-overview') {
+                setTimeout(() => {
+                    initHealthChart();
+                }, 100);
+            }
+
+
+            setTimeout(() => {
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                    activeTab.querySelectorAll('[data-aos]').forEach(el => {
+                        el.classList.add('aos-animate');
+                    });
+                }
+            }, 50);
+
+
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
+        }
+
+
+        function logout() {
+            localStorage.removeItem('userEmail');
+            window.location.href = "login.html";
+        }
+
+
+        function initHealthChart() {
+            const ctx = document.getElementById('healthChart');
+            if (!ctx || typeof Chart === 'undefined') return;
+
+
+            if (healthChartInstance) {
+                healthChartInstance.destroy();
+            }
+
+            healthChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [
+                        {
+                            label: 'Blood Sugar (mg/dL)',
+                            data: [110, 105, 108, 98, 95, 92],
+                            borderColor: '#2563eb',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#ffffff',
+                            pointBorderColor: '#2563eb',
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' }
+                    },
+                    scales: {
+                        y: { beginAtZero: false, min: 70, max: 130, grid: { color: '#f1f5f9' } },
+                        x: { grid: { display: false } }
+                    },
+                    animation: { duration: 1500, easing: 'easeOutQuart' }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Healthcare</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+
+    <div id="preloader">
+        <div class="loader-content">
+            <i class="fas fa-heartbeat heartbeat-loader"></i>
+            <span class="loader-text">STACKLY...</span>
+        </div>
+    </div>
+
+
+    <div class="top-bar" id="topBar">
+        <div class="marquee-container">
+            <p class="marquee-text">Get 20% off for first order. More information here.</p>
+        </div>
+        <button class="close-top-btn" id="closeTopBar">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+
+
+    <header class="header" id="mainHeader">
+        <nav class="navbar">
+
+            <a href="index.html" class="logo" data-aos="fade-right" data-aos-duration="1000">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+
+
+            <ul class="nav-links">
+                <li data-aos="fade-down" data-aos-delay="100"><a href="index.html" class="nav-item">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="about.html" class="nav-item">About Us</a></li>
+
+
+                <li class="dropdown" data-aos="fade-down" data-aos-delay="300">
+                    <a href="service.html" class="nav-item">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+
+                    </ul>
+                </li>
+
+                <li data-aos="fade-down" data-aos-delay="400"><a href="blog.html" class="nav-item">Blog</a></li>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="fqa.html" class="nav-item">FQAs</a></li>
+                <li data-aos="fade-down" data-aos-delay="600"><a href="gallery.html" class="nav-item active">Photo
+                        Gallery</a>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="contact.html" class="nav-item">Contact</a></li>
+
+                </li>
+            </ul>
+
+
+            <div class="nav-actions">
+                <a href="login.html" class="login-btn" data-aos="fade-left" data-aos-delay="700">Log In</a>
+                <a href="signup.html" class="signup-btn" data-aos="fade-left" data-aos-delay="800">Sign Up</a>
+            </div>
+
+
+            <div class="hamburger" id="hamburgerMenu" data-aos="fade-left" data-aos-duration="1000">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+            <div class="close-mobile-btn" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+
+        <div class="mobile-menu-body">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+
+
+                <li>
+                    <a href="service.html" class="mobile-services-link">Services <i
+                            class="fas fa-chevron-down mobile-dropdown-toggle" id="mobileServiceArrow"></i></a>
+                    <ul class="mobile-submenu" id="mobileSubmenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="fqa.html">FQAs</a></li>
+                <li><a href="gallery.html" class="active">Photo Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <div class="mobile-auth">
+                <a href="login.html" class="login-btn">Log In</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="gallery-hero-section">
+
+
+        <div class="gallery-slide active">
+
+            <div class="gh-bg" style="background-image: url('./asset/y1.webp');">
+            </div>
+            <div class="gh-overlay"></div>
+
+            <div class="gh-container">
+
+                <div class="gh-content-box">
+                    <div class="gh-slide-counter gh-anim-item">01 <span>/ 02</span></div>
+
+                    <div class="gh-breadcrumb gh-anim-item">
+                        <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Photo Gallery</span>
+                    </div>
+
+                    <h1 class="gh-anim-item">State-of-the-Art <br>Medical Facilities</h1>
+                    <p class="gh-anim-item">Take a visual tour of our modern clinic, advanced operation theaters, and
+                        comforting patient care rooms designed for your fast recovery.</p>
+
+                    <div class="gh-anim-item">
+                        <a href="404page.html" class="gh-btn">Explore Infrastructure <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="gallery-slide">
+
+            <div class="gh-bg" style="background-image: url('./asset/q7.webp');">
+            </div>
+            <div class="gh-overlay"></div>
+
+            <div class="gh-container">
+
+                <div class="gh-content-box">
+                    <div class="gh-slide-counter gh-anim-item">02 <span>/ 02</span></div>
+
+                    <div class="gh-breadcrumb gh-anim-item">
+                        <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Photo Gallery</span>
+                    </div>
+
+                    <h1 class="gh-anim-item">Moments of Care & <br>Compassion</h1>
+                    <p class="gh-anim-item">Glimpses of our dedicated medical professionals at work, bringing smiles,
+                        hope, and healing to our community every single day.</p>
+
+                    <div class="gh-anim-item">
+                        <a href="404page.html" class="gh-btn">View Our Team <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="premium-gallery-section">
+        <div class="pg-container">
+
+
+            <div class="pg-header">
+                <h2 class="pg-anim-header">Stackly Medical Gallery</h2>
+                <p class="pg-anim-header">Take a virtual tour of our state-of-the-art facilities and patient care areas.
+                </p>
+            </div>
+
+
+            <div class="pg-filters pg-anim-header">
+                <button class="pg-filter-btn active" data-filter="all">All</button>
+                <button class="pg-filter-btn" data-filter="pharmacy">Our Pharmacy</button>
+                <button class="pg-filter-btn" data-filter="waiting">Patient Waiting Area</button>
+                <button class="pg-filter-btn" data-filter="ward">General Ward</button>
+            </div>
+
+
+            <div class="pg-grid">
+
+
+                <div class="pg-item pg-anim-item pharmacy">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/y3.webp" alt="Pharmacy">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Pharmacy Area</h3>
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item waiting">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/q5.webp" alt="Waiting Area">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Waiting Area</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item ward">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/q7.webp" alt="General Ward">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>General Ward</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item pharmacy">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/y2.webp" alt="Pharmacy Counters">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Pharmacy Counters</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item waiting">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/q25.webp" alt="Reception">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Main Reception</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item ward">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/q13.webp" alt="Patient Room">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Private Patient Room</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item pharmacy">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/w5.webp" alt="Medicine Storage">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Medicine Storage</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item waiting">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/q1.webp" alt="Lounge">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Visitor Lounge</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pg-item pg-anim-item ward">
+                    <div class="pg-img-wrapper">
+                        <img src="./asset/q4.webp" alt="Recovery Ward">
+                        <div class="pg-hover-overlay">
+                            <div class="pg-hover-content">
+                                <a href="404page.html"><i class="fas fa-search-plus"></i></a>
+                                <h3>Recovery Ward</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="spotlight-gallery-section">
+        <div class="sg-container">
+
+
+            <div class="sg-header">
+                <h5 class="sg-anim">Our Environment</h5>
+                <h2 class="sg-anim">Experience the Excellence</h2>
+                <p class="sg-anim">Hover over any image to bring it into focus. See the dedication, technology, and care
+                    embedded in every corner of our clinic.</p>
+            </div>
+
+
+            <div class="sg-wrapper">
+
+
+                <div class="sg-item sg-anim-item">
+                    <img src="./asset/y7.webp" alt="Advanced ICU">
+                    <div class="sg-caption">
+                        <h3>Advanced ICU</h3>
+                    </div>
+                </div>
+
+
+                <div class="sg-item sg-anim-item middle-col">
+                    <img src="./asset/q11.webp" alt="Expert Diagnostics">
+                    <div class="sg-caption">
+                        <h3>Expert Diagnostics</h3>
+                    </div>
+                </div>
+
+
+                <div class="sg-item sg-anim-item">
+                    <img src="./asset/w2.webp" alt="Recovery Wards">
+                    <div class="sg-caption">
+                        <h3>Recovery Wards</h3>
+                    </div>
+                </div>
+
+
+                <div class="sg-item sg-anim-item">
+                    <img src="./asset/w1.webp" alt="Surgical Theater">
+                    <div class="sg-caption">
+                        <h3>Surgical Theater</h3>
+                    </div>
+                </div>
+
+
+                <div class="sg-item sg-anim-item middle-col">
+                    <img src="./asset/q10.webp" alt="Patient Care">
+                    <div class="sg-caption">
+                        <h3>Patient Care</h3>
+                    </div>
+                </div>
+
+
+                <div class="sg-item sg-anim-item">
+                    <img src="./asset/w5.webp" alt="Pharmacy">
+                    <div class="sg-caption">
+                        <h3>24/7 Pharmacy</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sg-btn-container sg-anim">
+                <a href="404page.html" class="sg-btn-primary">Load More Photos</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="compact-cta-section">
+        <div class="cc-container">
+
+
+            <div class="cc-banner cc-anim-bounce">
+
+                <div class="cc-content">
+
+                    <div class="cc-icon-pulse">
+                        <i class="fas fa-calendar-check"></i>
+                        <div class="pulse-ring"></div>
+                    </div>
+
+
+                    <div class="cc-text">
+                        <h3>Ready to prioritize your health?</h3>
+                        <p>Book your consultation today and experience world-class medical care without the wait.</p>
+                    </div>
+                </div>
+
+
+                <div class="cc-action">
+                    <a href="404page.html" class="btn-cc-shine">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <div class="contact-left">
+                <h2 class="contact-anim-left">Get in touch</h2>
+                <p class="contact-anim-left">Just fill out the form below and we will get back to you as soon as
+                    possible.</p>
+                <div class="contact-img contact-anim-left">
+                    <img src="./asset/q15.webp" alt="Doctors Team">
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <form id="getInTouchForm" class="touch-form">
+
+                    <div class="form-row-2 contact-anim-right">
+                        <div class="input-box">
+                            <input type="text" id="firstName" placeholder="First Name">
+                            <span class="error-msg" id="fNameError">Invalid characters (Letters, Space, -, '
+                                only).</span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="lastName" placeholder="Last Name">
+                            <span class="error-msg" id="lNameError">Invalid characters (Letters, Space, -, '
+                                only).</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2 contact-anim-right">
+                        <div class="input-box">
+                            <input type="email" id="contactEmail" placeholder="Enter your email">
+                            <span class="error-msg" id="cEmailError">Enter valid email.</span>
+                        </div>
+
+                        <div class="input-box">
+                            <div class="phone-flex" id="phoneWrapper">
+                                <select id="countryCode" class="country-select">
+                                    <option value="+91">IND</option>
+                                    <option value="+1">US</option>
+                                    <option value="+44">UK</option>
+                                </select>
+                                <input type="tel" id="contactPhone" placeholder="Enter your Phone" maxlength="10">
+                            </div>
+                            <span class="error-msg" id="cPhoneError">Exactly 10 digits required.</span>
+                        </div>
+                    </div>
+
+                    <div class="input-box contact-anim-right">
+                        <textarea id="contactDesc" rows="2" placeholder="Enter a description..."></textarea>
+                        <span class="error-msg" id="cDescError">Minimum 10 characters required.</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit contact-anim-right">Send <i
+                            class="fas fa-arrow-right"></i></button>
+
+
+                    <div id="contactSuccess" class="success-msg">
+                        <i class="fas fa-check-circle"></i> Message sent successfully! Redirecting...
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="footer-section">
+        <div class="footer-container">
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <a href="index.html" class="footer-logo">
+                    <img src="./asset/logo_bule.webp" alt="logo">
+                </a>
+
+
+                <div class="footer-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.161609877078!2d78.17140487386635!3d11.682956588526377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1791887742148!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin" class="google-map-iframe">
+                    </iframe>
+                </div>
+
+                <div class="social-icons">
+                    <a href="404page.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404page.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404page.html"><i class="fab fa-twitter"></i></a>
+                    <a href="404page.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="blog.html"><i class="fas fa-angle-right"></i> Blog</a></li>
+                    <li><a href="fqa.html"><i class="fas fa-angle-right"></i> FQAs</li>
+                    <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="footer-heading">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> General Practice</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Cardiology</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Pediatrics</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Dental Care</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Laboratory Services</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Emergency 24/7</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@thestackly.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98765 43210</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem</span>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <span>Mon - Sun: 24/7 Available</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 Stackly Healthcare. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404page.html">Privacy Policy</a>
+                    <a href="404page.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+
+
+
+        const gallerySlides = document.querySelectorAll(".gallery-slide");
+
+        if (gallerySlides.length > 0 && typeof gsap !== 'undefined') {
+            let currentGallerySlide = 0;
+            const totalGallerySlides = gallerySlides.length;
+
+            function animateGalleryContent(index) {
+                const activeSlide = gallerySlides[index];
+                const elementsToAnimate = activeSlide.querySelectorAll('.gh-anim-item');
+
+
+                gsap.set(elementsToAnimate, { y: 40, autoAlpha: 0 });
+
+
+                gsap.to(elementsToAnimate, {
+                    y: 0,
+                    autoAlpha: 1,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    delay: 0.3
+                });
+            }
+
+
+            animateGalleryContent(0);
+
+
+            setInterval(() => {
+
+                gallerySlides[currentGallerySlide].classList.remove('active');
+                const oldElements = gallerySlides[currentGallerySlide].querySelectorAll('.gh-anim-item');
+                gsap.set(oldElements, { autoAlpha: 0 });
+
+
+                currentGallerySlide = (currentGallerySlide + 1) % totalGallerySlides;
+
+
+                gallerySlides[currentGallerySlide].classList.add('active');
+                animateGalleryContent(currentGallerySlide);
+
+            }, 6500);
+        }
+
+
+
+
+
+
+
+
+        const filterBtns = document.querySelectorAll('.pg-filter-btn');
+        const galleryItems = document.querySelectorAll('.pg-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+
+                filterBtns.forEach(b => b.classList.remove('active'));
+
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.classList.remove('pg-hide');
+
+                        gsap.fromTo(item,
+                            { scale: 0.8, opacity: 0 },
+                            { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }
+                        );
+                    } else {
+                        item.classList.add('pg-hide');
+                    }
+                });
+
+
+                if (typeof ScrollTrigger !== 'undefined') {
+                    setTimeout(() => ScrollTrigger.refresh(), 500);
+                }
+            });
+        });
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".pg-anim-header", {
+                scrollTrigger: { trigger: ".premium-gallery-section", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out"
+            });
+
+
+            ScrollTrigger.batch(".pg-anim-item", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "back.out(1.1)",
+                        clearProps: "all"
+                    });
+                }
+            });
+
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".sg-anim", {
+                scrollTrigger: { trigger: ".spotlight-gallery-section", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", clearProps: "all"
+            });
+
+
+            ScrollTrigger.batch(".sg-anim-item", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.9,
+                        stagger: 0.15,
+                        ease: "back.out(1.2)",
+                        clearProps: "all"
+                    });
+                }
+            });
+
+        }
+
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+            gsap.from(".cc-anim-bounce", {
+                scrollTrigger: {
+                    trigger: ".compact-cta-section",
+                    start: "top 85%"
+                },
+                scale: 0.8,
+                y: 50,
+                opacity: 0,
+                duration: 1.2,
+                ease: "elastic.out(1, 0.7)",
+                clearProps: "all"
+            });
+
+        }
+
+
+    </script>
+</body>
+
+</html>

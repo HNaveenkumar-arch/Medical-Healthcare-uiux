@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Premium Healthcare</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+
+    <div id="preloader">
+        <div class="loader-content">
+            <i class="fas fa-heartbeat heartbeat-loader"></i>
+            <span class="loader-text">STACKLY...</span>
+        </div>
+    </div>
+
+
+    <div class="top-bar" id="topBar">
+        <div class="marquee-container">
+            <p class="marquee-text">Get 20% off for first order. More information here.</p>
+        </div>
+        <button class="close-top-btn" id="closeTopBar">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+
+
+    <header class="header" id="mainHeader">
+        <nav class="navbar">
+
+            <a href="index.html" class="logo" data-aos="fade-right" data-aos-duration="1000">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+
+
+            <ul class="nav-links">
+                <li data-aos="fade-down" data-aos-delay="100"><a href="index.html" class="nav-item">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="about.html" class="nav-item">About Us</a></li>
+
+
+                <li class="dropdown" data-aos="fade-down" data-aos-delay="300">
+                    <a href="service.html" class="nav-item">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+
+                    </ul>
+                </li>
+
+                <li data-aos="fade-down" data-aos-delay="400"><a href="blog.html" class="nav-item active">Blog</a></li>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="fqa.html" class="nav-item">FQAs</a></li>
+                <li data-aos="fade-down" data-aos-delay="600"><a href="gallery.html" class="nav-item">Photo Gallery</a>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="contact.html" class="nav-item">Contact</a></li>
+
+                </li>
+            </ul>
+
+
+            <div class="nav-actions">
+                <a href="login.html" class="login-btn" data-aos="fade-left" data-aos-delay="700">Log In</a>
+                <a href="signup.html" class="signup-btn" data-aos="fade-left" data-aos-delay="800">Sign Up</a>
+            </div>
+
+
+            <div class="hamburger" id="hamburgerMenu" data-aos="fade-left" data-aos-duration="1000">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="./asset/logo_bule.webp" alt="logo">
+            </a>
+            <div class="close-mobile-btn" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+
+        <div class="mobile-menu-body">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+
+
+                <li>
+                    <a href="service.html" class="mobile-services-link">Services <i
+                            class="fas fa-chevron-down mobile-dropdown-toggle" id="mobileServiceArrow"></i></a>
+                    <ul class="mobile-submenu" id="mobileSubmenu">
+                        <li><a href="service-1.html">Service 1</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="fqa.html">FQAs</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <div class="mobile-auth">
+                <a href="login.html" class="login-btn">Log In</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="blog-hero-section">
+
+
+        <div class="blog-slide active">
+
+            <div class="bh-bg" style="background-image: url('./asset/q11.webp');"></div>
+            <div class="bh-overlay"></div>
+
+            <div class="bh-container">
+
+                <div class="bh-left">
+                    <div class="bh-breadcrumb bh-anim-text">
+                        <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Blog</span>
+                    </div>
+                    <h1 class="bh-anim-text">Medical Insights &<br>Health Tips</h1>
+                    <p class="bh-anim-text">Stay updated with the latest news, expert advice, and medical breakthroughs
+                        from our top specialists to keep you and your family healthy.</p>
+                    <div class="bh-btn-box bh-anim-text">
+                        <a href="404page.html" class="btn-bh-primary">Read Latest Articles <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bh-right bh-anim-img">
+                    <div class="bh-image-wrapper floating-img">
+                        <img src="./asset/q19.webp" alt="Doctor writing notes">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="blog-slide">
+
+            <div class="bh-bg" style="background-image: url('./asset/q12.webp');"></div>
+            <div class="bh-overlay"></div>
+
+            <div class="bh-container">
+
+                <div class="bh-left">
+                    <div class="bh-breadcrumb bh-anim-text">
+                        <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Blog</span>
+                    </div>
+                    <h1 class="bh-anim-text">Empowering Your<br>Wellness Journey</h1>
+                    <p class="bh-anim-text">Explore our rich library of health guides, patient success stories, and
+                        holistic wellness strategies tailored for your everyday life.</p>
+                    <div class="bh-btn-box bh-anim-text">
+                        <a href="404page.html" class="btn-bh-primary">Explore Categories <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bh-right bh-anim-img">
+                    <div class="bh-image-wrapper floating-img">
+                        <img src="./asset/q17.webp" alt="Healthy Lifestyle">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="blog-latest-section">
+        <div class="bl-container">
+
+
+            <div class="bl-header">
+                <h5 class="bl-anim-header">Stay Informed</h5>
+                <h2 class="bl-anim-header">Latest Medical Insights</h2>
+                <p class="bl-anim-header">Discover our most recent articles, health tips, and clinic news written by our
+                    expert medical professionals.</p>
+            </div>
+
+
+            <div class="bl-grid">
+
+
+                <div class="bl-featured bl-anim-left">
+                    <div class="bl-feat-img">
+                        <img src="./asset/q10.webp" alt="Featured Medical News">
+                    </div>
+                    <div class="bl-feat-overlay"></div>
+                    <div class="bl-feat-content">
+                        <span class="bl-tag">Wellness</span>
+                        <h3>The Importance of Routine Health Check-ups in 2026</h3>
+                        <p>Preventive healthcare is more important than ever. Learn why scheduling your annual full-body
+                            check-up can save your life and improve your overall well-being.</p>
+                        <div class="bl-meta">
+                            <span><i class="far fa-calendar-alt"></i> Oct 26, 2026</span>
+                            <span><i class="far fa-user"></i> Dr. Sarah Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bl-list">
+
+
+                    <div class="bl-card bl-anim-right">
+                        <div class="bl-card-img">
+                            <img src="./asset/w3.webp" alt="Cardiology Tips">
+                        </div>
+                        <div class="bl-card-content">
+                            <span class="bl-tag outline-tag">Cardiology</span>
+                            <h4>5 Simple Daily Habits for a Stronger Heart</h4>
+                            <div class="bl-meta dark-meta">
+                                <span><i class="far fa-calendar-alt"></i> Oct 22, 2026</span>
+                            </div>
+                            <a href="404page.html" class="bl-read-more">Read Article <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+
+                    <div class="bl-card bl-anim-right">
+                        <div class="bl-card-img">
+                            <img src="./asset/w4.webp" alt="Pediatrics">
+                        </div>
+                        <div class="bl-card-content">
+                            <span class="bl-tag outline-tag">Pediatrics</span>
+                            <h4>Navigating Flu Season: A Guide for Parents</h4>
+                            <div class="bl-meta dark-meta">
+                                <span><i class="far fa-calendar-alt"></i> Oct 18, 2026</span>
+                            </div>
+                            <a href="404page.html" class="bl-read-more">Read Article <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="blog-trending-section">
+        <div class="bt-container">
+
+
+            <div class="bt-left">
+                <div class="bt-sticky-content">
+                    <h5 class="bt-anim-left">Most Popular</h5>
+                    <h2 class="bt-anim-left">Trending in Healthcare</h2>
+                    <p class="bt-anim-left">Dive into our most-read articles this week. Stay informed about the latest
+                        treatments, lifestyle tips, and medical technology.</p>
+                    <div class="bt-anim-left mt-3">
+                        <a href="404page.html" class="btn-bt-outline">View All Topics</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bt-right">
+
+                <div class="bt-card bt-anim-right">
+                    <div class="bt-card-img">
+                        <img src="./asset/y4.webp" alt="Mental Health">
+                        <span class="bt-badge">Mental Health</span>
+                    </div>
+                    <div class="bt-card-content">
+                        <div class="bt-meta"><span><i class="far fa-clock"></i> 5 Min Read</span></div>
+                        <h3>Understanding Anxiety: Modern Medical Approaches</h3>
+                        <p>Learn how our specialists use a combination of therapy and modern medicine to effectively
+                            manage chronic anxiety.</p>
+                        <a href="404page.html" class="bt-read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="bt-card bt-anim-right">
+                    <div class="bt-card-img">
+                        <img src="./asset/q1.webp" alt="Diet & Nutrition">
+                        <span class="bt-badge">Nutrition</span>
+                    </div>
+                    <div class="bt-card-content">
+                        <div class="bt-meta"><span><i class="far fa-clock"></i> 7 Min Read</span></div>
+                        <h3>The Role of Superfoods in Post-Surgery Recovery</h3>
+                        <p>Discover which nutrient-dense foods can accelerate your healing process and boost your immune
+                            system after a surgical procedure.</p>
+                        <a href="404page.html" class="bt-read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="bt-card bt-anim-right">
+                    <div class="bt-card-img">
+                        <img src="./asset/q12.webp" alt="Dermatology">
+                        <span class="bt-badge">Skin Care</span>
+                    </div>
+                    <div class="bt-card-content">
+                        <div class="bt-meta"><span><i class="far fa-clock"></i> 4 Min Read</span></div>
+                        <h3>Debunking Common Skincare Myths in 2026</h3>
+                        <p>Our top dermatologists break down what actually works and what you should avoid in your daily
+                            skincare routine.</p>
+                        <a href="404page.html" class="bt-read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="blog-categories-reveal">
+        <div class="bcr-container">
+
+
+            <div class="bcr-header">
+                <h5 class="bcr-anim">Explore Categories</h5>
+                <h2 class="bcr-anim">Dive Into Our Expertise</h2>
+            </div>
+
+
+            <div class="bcr-layout">
+
+
+                <div class="bcr-list">
+
+                    <div class="bcr-item active bcr-anim" data-img="./asset/w1.webp">
+                        <h3><span>01</span> Medical Innovations</h3>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="bcr-item bcr-anim" data-img="./asset/q16.webp">
+                        <h3><span>02</span> Patient Success Stories</h3>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="bcr-item bcr-anim" data-img="./asset/y3.webp">
+                        <h3><span>03</span> Diet & Nutrition Guides</h3>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="bcr-item bcr-anim" data-img="./asset/q10.webp">
+                        <h3><span>04</span> Mental Wellness Care</h3>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+
+                <div class="bcr-image-wrapper bcr-anim">
+                    <img id="bcr-preview-img" src="./asset/q16.webp" alt="Category Preview">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="audio-blog-section">
+        <div class="ab-container">
+
+
+            <div class="ab-left ab-anim-left">
+                <div class="ab-image-wrapper">
+                    <img src="./asset/d1.webp" alt="Medical Podcast">
+
+                </div>
+            </div>
+
+
+            <div class="ab-right">
+                <h5 class="ab-anim-right">Listen on the Go</h5>
+                <h2 class="ab-anim-right">Lakeshore Health Podcast</h2>
+                <p class="ab-anim-right">No time to read? Tune into our exclusive audio articles and expert interviews
+                    covering the latest in healthcare, wellness, and medical breakthroughs.</p>
+
+
+                <div class="ab-track-list">
+
+
+                    <div class="ab-track ab-anim-track">
+                        <div class="ab-track-icon"><i class="fas fa-headphones-alt"></i></div>
+                        <div class="ab-track-info">
+                            <h4>Heart Health Myths Debunked</h4>
+                            <span>Episode 12 • 15 Mins Listen</span>
+                        </div>
+
+                        <div class="ab-soundwave">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="ab-track ab-anim-track">
+                        <div class="ab-track-icon"><i class="fas fa-headphones-alt"></i></div>
+                        <div class="ab-track-info">
+                            <h4>Nutrition Tips for Post-Surgery</h4>
+                            <span>Episode 11 • 10 Mins Listen</span>
+                        </div>
+                        <div class="ab-soundwave">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="ab-track ab-anim-track">
+                        <div class="ab-track-icon"><i class="fas fa-headphones-alt"></i></div>
+                        <div class="ab-track-info">
+                            <h4>Managing Stress & Anxiety Daily</h4>
+                            <span>Episode 10 • 18 Mins Listen</span>
+                        </div>
+                        <div class="ab-soundwave">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="ab-anim-right" style="margin-top: 25px;">
+                    <a href="404page.html" class="ab-view-all">View All Episodes <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="premium-cta-section">
+
+
+        <div class="cta-flip-card cta-anim-scale">
+
+
+            <div class="cta-bg-reveal"></div>
+
+
+            <div class="cta-content">
+                <h2>Take the First Step Towards Better Health</h2>
+                <p>Consult with our top medical experts today. Your wellness journey begins with a single click. Don't
+                    wait for tomorrow!</p>
+                <a href="404page.html" class="btn-flip">Book an Appointment <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <footer class="footer-section">
+        <div class="footer-container">
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <a href="index.html" class="footer-logo">
+                    <img src="./asset/logo_bule.webp" alt="logo">
+                </a>
+
+
+                <div class="footer-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.161609877078!2d78.17140487386635!3d11.682956588526377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1791887742148!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin" class="google-map-iframe">
+                    </iframe>
+                </div>
+
+                <div class="social-icons">
+                    <a href="404page.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404page.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404page.html"><i class="fab fa-twitter"></i></a>
+                    <a href="404page.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="blog.html"><i class="fas fa-angle-right"></i> Blog</a></li>
+                    <li><a href="fqa.html"><i class="fas fa-angle-right"></i> FQAs</li>
+                    <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="footer-heading">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> General Practice</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Cardiology</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Pediatrics</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Dental Care</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Laboratory Services</a></li>
+                    <li><a href="404page.html"><i class="fas fa-angle-right"></i> Emergency 24/7</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@thestackly.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98765 43210</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem</span>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <span>Mon - Sun: 24/7 Available</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 Stackly Healthcare. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404page.html">Privacy Policy</a>
+                    <a href="404page.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+
+
+
+        const blogSlides = document.querySelectorAll(".blog-slide");
+
+        if (blogSlides.length > 0 && typeof gsap !== 'undefined') {
+            let currentBlogSlide = 0;
+            const totalBlogSlides = blogSlides.length;
+
+            function animateBlogContent(index) {
+                const activeSlide = blogSlides[index];
+                const textElements = activeSlide.querySelectorAll('.bh-anim-text');
+                const imgElement = activeSlide.querySelector('.bh-anim-img');
+
+
+                gsap.set(textElements, { y: 30, autoAlpha: 0 });
+                gsap.set(imgElement, { x: 50, autoAlpha: 0 });
+
+
+                gsap.to(textElements, {
+                    y: 0,
+                    autoAlpha: 1,
+                    duration: 0.8,
+                    stagger: 0.2,
+                    ease: "power3.out",
+                    delay: 0.2
+                });
+
+
+                gsap.to(imgElement, {
+                    x: 0,
+                    autoAlpha: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                    delay: 0.6
+                });
+            }
+
+
+            animateBlogContent(0);
+
+
+            setInterval(() => {
+
+                blogSlides[currentBlogSlide].classList.remove('active');
+                const oldText = blogSlides[currentBlogSlide].querySelectorAll('.bh-anim-text');
+                const oldImg = blogSlides[currentBlogSlide].querySelector('.bh-anim-img');
+                gsap.set(oldText, { autoAlpha: 0 });
+                gsap.set(oldImg, { autoAlpha: 0 });
+
+
+                currentBlogSlide = (currentBlogSlide + 1) % totalBlogSlides;
+
+
+                blogSlides[currentBlogSlide].classList.add('active');
+
+
+                animateBlogContent(currentBlogSlide);
+
+            }, 6500);
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".bl-anim-header", {
+                scrollTrigger: { trigger: ".blog-latest-section", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", clearProps: "all"
+            });
+
+
+            gsap.from(".bl-anim-left", {
+                scrollTrigger: { trigger: ".bl-grid", start: "top 80%" },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                clearProps: "all"
+            });
+
+
+            gsap.from(".bl-anim-right", {
+                scrollTrigger: { trigger: ".bl-grid", start: "top 80%" },
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                delay: 0.2,
+                ease: "power3.out",
+                clearProps: "all"
+            });
+
+        }
+
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+            gsap.from(".bt-anim-left", {
+                scrollTrigger: { trigger: ".blog-trending-section", start: "top 80%" },
+                x: -40, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", clearProps: "all"
+            });
+
+            ScrollTrigger.batch(".bt-anim-right", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.2,
+                        ease: "back.out(1.1)",
+                        clearProps: "all"
+                    });
+                }
+            });
+
+        }
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".bcr-anim", {
+                scrollTrigger: { trigger: ".blog-categories-reveal", start: "top 80%" },
+                y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", clearProps: "all"
+            });
+
+
+            const bcrItems = document.querySelectorAll('.bcr-item');
+            const bcrImg = document.getElementById('bcr-preview-img');
+
+            bcrItems.forEach(item => {
+
+                item.addEventListener('mouseenter', handleImageReveal);
+                item.addEventListener('click', handleImageReveal);
+
+                function handleImageReveal() {
+
+                    bcrItems.forEach(i => i.classList.remove('active'));
+
+                    this.classList.add('active');
+
+
+                    const newSrc = this.getAttribute('data-img');
+
+
+                    if (bcrImg.getAttribute('src') !== newSrc) {
+
+
+                        gsap.to(bcrImg, {
+                            opacity: 0.2,
+                            scale: 1.1,
+                            duration: 0.3,
+                            ease: "power2.inOut",
+                            onComplete: () => {
+
+                                bcrImg.setAttribute('src', newSrc);
+
+
+                                gsap.to(bcrImg, {
+                                    opacity: 1,
+                                    scale: 1,
+                                    duration: 0.5,
+                                    ease: "power2.out"
+                                });
+                            }
+                        });
+                    }
+                }
+            });
+
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+
+            gsap.from(".ab-anim-left", {
+                scrollTrigger: { trigger: ".audio-blog-section", start: "top 80%" },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                clearProps: "all"
+            });
+
+
+            gsap.from(".ab-anim-right", {
+                scrollTrigger: { trigger: ".ab-right", start: "top 80%" },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
+                clearProps: "all"
+            });
+
+
+            gsap.from(".ab-anim-track", {
+                scrollTrigger: { trigger: ".ab-track-list", start: "top 85%" },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "back.out(1.1)",
+                delay: 0.3,
+                clearProps: "all"
+            });
+
+        }
+
+
+
+
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+
+            gsap.from(".cta-anim-scale", {
+                scrollTrigger: {
+                    trigger: ".premium-cta-section",
+                    start: "top 85%"
+                },
+                scale: 0.85,
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "back.out(1.2)",
+                clearProps: "all"
+            });
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
