@@ -57,12 +57,9 @@
                 </li>
 
 
-                <li class="dropdown" data-aos="fade-down" data-aos-delay="300">
-                    <a href="service.html" class="nav-item">Services <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="service-1.html">Service 1</a></li>
-
-                    </ul>
+                <li data-aos="fade-down" data-aos-delay="300">
+                    <a href="service.html" class="nav-item">Services</a>
+                    
                 </li>
 
                 <li data-aos="fade-down" data-aos-delay="400"><a href="blog.html" class="nav-item">Blog</a></li>
@@ -178,40 +175,54 @@
     </section>
 
 
-    <section class="welcome-section">
-        <div class="welcome-container">
-
-
-            <h2 class="welcome-anim welcome-heading">Welcome to Lakeshore Medical Clinic</h2>
-            <h4 class="welcome-anim welcome-subheading">Your Trusted Healthcare Partner</h4>
-
-
-            <div class="welcome-content">
-                <p class="welcome-anim hover-para">
-                    At Lake shore Medical Clinic, also known as Gimli Medical Clinic, we are dedicated to providing
-                    exceptional medical care to our community. Our team of highly experienced doctors, nurses, and
-                    healthcare professionals is committed to delivering comprehensive and compassionate medical services
-                    tailored to your needs.
+    <!-- Premium Welcome Section -->
+    <section class="premium-welcome-section">
+        <div class="welcome-grid">
+            
+            <!-- Left: Text Content -->
+            <div class="welcome-text-col" data-aos="fade-right" data-aos-duration="1000">
+                <span class="welcome-badge"><i class="fas fa-hospital-user"></i> About Our Clinic</span>
+                <h2 class="welcome-title">Welcome to <span class="text-blue">Lakeshore</span> Medical Clinic</h2>
+                <h4 class="welcome-subtitle">Your Trusted Healthcare Partner</h4>
+                
+                <p class="welcome-desc">
+                    Also known as Gimli Medical Clinic, we are dedicated to providing exceptional, patient-centered medical care to our community. Our team of highly experienced professionals is committed to delivering comprehensive and compassionate services tailored to your needs.
                 </p>
 
-                <p class="welcome-anim hover-para">
-                    We offer a wide range of healthcare services, including preventive care, chronic disease management,
-                    acute care, and specialized medical treatments. Whether you require routine check-ups, diagnostic
-                    assessments, or urgent medical attention, our clinic is equipped with state-of-the-art technology
-                    and expertise to ensure the highest standard of care.
-                </p>
+                <ul class="welcome-features">
+                    <li><i class="fas fa-check-circle"></i> Preventive Care & Chronic Disease Management</li>
+                    <li><i class="fas fa-check-circle"></i> State-of-the-art Diagnostic Technology</li>
+                    <li><i class="fas fa-check-circle"></i> Personalized Treatment Plans</li>
+                </ul>
 
-                <p class="welcome-anim hover-para">
-                    Your health and well-being are our top priorities. At Lakeshore Medical Clinic, we take a
-                    patient-centered approach, ensuring you receive personalized treatment plans and professional
-                    medical guidance every step of the way. Trust us to be your healthcare partner—because your health
-                    matters.
-                </p>
+                <div class="welcome-btn-group">
+                    <a href="404page.html" class="btn-action bg-blue">Annual General Meeting <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
 
+            <!-- Right: Visual & Floating Cards -->
+            <div class="welcome-visual-col" data-aos="fade-left" data-aos-duration="1000">
+                <div class="visual-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop" alt="Lakeshore Medical Clinic" class="main-visual-img">
+                    
+                    <!-- Floating Experience Card -->
+                    <div class="floating-card float-card-1">
+                        <div class="float-icon bg-blue"><i class="fas fa-user-md"></i></div>
+                        <div class="float-text">
+                            <h3>15+ Years</h3>
+                            <p>Medical Experience</p>
+                        </div>
+                    </div>
 
-            <div class="welcome-anim welcome-btn-wrapper">
-                <a href="404page.html" class="welcome-btn">Annual General Meeting</a>
+                    <!-- Floating Support Card -->
+                    <div class="floating-card float-card-2">
+                        <div class="float-icon bg-green"><i class="fas fa-ambulance"></i></div>
+                        <div class="float-text">
+                            <h3>24/7 Care</h3>
+                            <p>Emergency Support</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -610,23 +621,20 @@
 
 
 
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-
-
-            gsap.from(".welcome-anim", {
-                scrollTrigger: {
-                    trigger: ".welcome-section",
-                    start: "top 80%"
-                },
-                y: 40,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power3.out",
-                clearProps: "all"
-            });
-
-        }
+        // --- Premium Welcome Section GSAP Animation ---
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.from(".floating-card", {
+            scrollTrigger: {
+                trigger: ".premium-welcome-section",
+                start: "top 75%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.3,
+            ease: "back.out(1.2)"
+        });
+    }
 
 
 

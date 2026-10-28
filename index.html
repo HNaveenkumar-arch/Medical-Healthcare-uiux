@@ -55,12 +55,9 @@
                 <li data-aos="fade-down" data-aos-delay="200"><a href="about.html" class="nav-item">About Us</a></li>
 
 
-                <li class="dropdown" data-aos="fade-down" data-aos-delay="300">
-                    <a href="service.html" class="nav-item">Services <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="service-1.html">Service 1</a></li>
-
-                    </ul>
+                <li data-aos="fade-down" data-aos-delay="300">
+                    <a href="service.html" class="nav-item">Services</a>
+                    
                 </li>
 
                 <li data-aos="fade-down" data-aos-delay="400"><a href="blog.html" class="nav-item">Blog</a></li>
@@ -127,90 +124,42 @@
     </div>
 
 
-    <section class="hero-slider-section">
+    <!-- Premium GSAP Hero Section -->
+    <section class="premium-hero-section">
 
-
-        <div class="slide active">
-
-            <div class="slide-bg" style="background-image: url('./asset/w2.webp');"></div>
-
-            <div class="slide-overlay"></div>
-
-            <div class="slide-content-container">
-
-                <div class="slide-text-card">
-                    <span class="slide-badge"><i class="fas fa-star"></i> Top Rated Clinic</span>
-                    <h1 class="slide-title">Premium Medical Service</h1>
-                    <p class="slide-subtitle">Providing top-notch healthcare and pharmacy solutions.</p>
-                    <p class="hero-desc">Experience world-class medical care with our expert team of doctors. We are
-                        dedicated to ensuring your health and well-being with state-of-the-art technology and
-                        compassionate care.</p>
-
-                    <div class="hero-buttons">
-                        <a href="404page.html" class="btn btn-primary">Book Appointment</a>
-                        <a href="404page.html" class="btn btn-secondary">Learn More</a>
-                    </div>
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <div class="hero-bg" style="background-image: url('./asset/w2.webp');"></div>
+            <!-- Gradient Overlay for text readability -->
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-star"></i> Top Rated Clinic</span>
+                <h1 class="hero-title">Premium Medical Service</h1>
+                <p class="hero-desc">Experience world-class medical care with our expert team of doctors. We are dedicated to ensuring your health and well-being with state-of-the-art technology and compassionate care.</p>
+                
+                <div class="hero-btn-group">
+                    <a href="404page.html" class="btn-fire btn-primary">Book Appointment</a>
+                    <a href="404page.html" class="btn-fire btn-outline">Learn More</a>
                 </div>
             </div>
         </div>
 
-
-        <div class="slide">
-
-            <div class="slide-bg" style="background-image: url('./asset/w1.webp');"></div>
-            <div class="slide-overlay"></div>
-
-            <div class="slide-content-container">
-                <div class="slide-text-card">
-                    <span class="slide-badge"><i class="fas fa-user-md"></i> 24/7 Availability</span>
-                    <h1 class="slide-title">Expert Doctors Team</h1>
-                    <p class="slide-subtitle">Consult with our highly qualified medical professionals.</p>
-                    <p class="hero-desc">Our specialists are here to provide personalized treatments tailored to your
-                        unique needs. Trust our experienced hands for a faster and safer recovery process.</p>
-
-                    <div class="hero-buttons">
-                        <a href="404page.html" class="btn btn-primary">Find a Doctor</a>
-                        <a href="404page.html" class="btn btn-secondary">Our Services</a>
-                    </div>
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+            <div class="hero-bg" style="background-image: url('./asset/w1.webp');"></div>
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-user-md"></i> 24/7 Availability</span>
+                <h1 class="hero-title">Expert Doctors Team</h1>
+                <p class="hero-desc">Our specialists are here to provide personalized treatments tailored to your unique needs. Trust our experienced hands for a faster and safer recovery process.</p>
+                
+                <div class="hero-btn-group">
+                    <a href="404page.html" class="btn-fire btn-primary">Find a Doctor</a>
+                    <a href="404page.html" class="btn-fire btn-outline">Our Services</a>
                 </div>
             </div>
-        </div>
-
-
-        <div class="slide">
-
-            <div class="slide-bg" style="background-image: url('./asset/q1.webp');"></div>
-            <div class="slide-overlay"></div>
-
-            <div class="slide-content-container">
-                <div class="slide-text-card">
-                    <span class="slide-badge"><i class="fas fa-ambulance"></i> Emergency Response</span>
-                    <h1 class="slide-title">Critical Care Center</h1>
-                    <p class="slide-subtitle">24/7 available for all your critical healthcare needs.</p>
-                    <p class="hero-desc">In times of emergency, every second counts. Our fully equipped emergency units
-                        and ambulances ensure rapid response and immediate life-saving treatments.</p>
-
-                    <div class="hero-buttons">
-                        <a href="404page.html" class="btn btn-primary">Emergency Call</a>
-                        <a href="404page.html" class="btn btn-secondary">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <button class="slider-nav-btn prev-btn" id="heroPrevBtn">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="slider-nav-btn next-btn" id="heroNextBtn">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-
-
-        <div class="slider-pagination-pill">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
         </div>
 
     </section>
@@ -468,11 +417,10 @@
     </section>
 
     <section class="doctors-section">
-        <div class="doctors-header" data-aos="fade-up">
-
-            <h2 class="gradient-heading">Meet Our Great Doctors</h2>
-            <p>Everything you need to convert, engage, and retain more users.</p>
-        </div>
+        <div class="doctors-header">
+        <h2 class="gradient-heading">Meet Our Great Doctors</h2>
+        <p>Everything you need to convert, engage, and retain more users.</p>
+    </div>
 
         <div class="doctors-row">
 
@@ -850,169 +798,198 @@
     <script src="script.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-
-            if (typeof AOS !== 'undefined') {
-                AOS.init({ once: true, offset: 50 });
-            }
-
-
-
-
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.slider-pagination-pill .dot');
-            const prevBtn = document.getElementById('heroPrevBtn');
-            const nextBtn = document.getElementById('heroNextBtn');
+    // --- Hero Slider Logic (லோடிங் முடிந்ததும் வேலை செய்ய தனியாக ஃபங்ஷன்) ---
+    function initHeroSlider() {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length > 0) {
             let currentSlide = 0;
-            let slideInterval;
+            const slideDuration = 6000; // 6 seconds per slide
 
-
-            function animateSlideText(slideIndex) {
-
-                const elementsToAnimate = slides[slideIndex].querySelectorAll('.slide-badge, .slide-title, .slide-subtitle, .hero-desc, .hero-buttons');
-
-
-                gsap.set(elementsToAnimate, { y: 30, opacity: 0 });
-
-
-                gsap.to(elementsToAnimate, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.15,
-                    delay: 0.3,
-                    ease: "power3.out"
+            function animateSlideContent(slide) {
+                // Text Elements Staggered Fade Up
+                const elements = slide.querySelectorAll('.hero-badge, .hero-title, .hero-desc, .hero-btn-group');
+                // Reset opacity first
+                gsap.set(elements, { opacity: 0, y: 40 });
+                
+                // Animate
+                gsap.to(elements, { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 1, 
+                    stagger: 0.15, 
+                    ease: "power3.out", 
+                    delay: 0.2 
                 });
+
+                // Background Zoom Effect (Parallax Scale)
+                const bg = slide.querySelector('.hero-bg');
+                gsap.fromTo(bg, { scale: 1 }, { scale: 1.1, duration: 6, ease: "none" });
             }
 
-            function goToSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
+            function autoPlayHero() {
+                const prevSlide = slides[currentSlide];
+                currentSlide = (currentSlide + 1) % slides.length;
+                const nextSlide = slides[currentSlide];
 
-                currentSlide = (index + slides.length) % slides.length;
-
-                slides[currentSlide].classList.add('active');
-                dots[currentSlide].classList.add('active');
-
-
-                animateSlideText(currentSlide);
-            }
-
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => { goToSlide(currentSlide + 1); resetInterval(); });
-            }
-
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => { goToSlide(currentSlide - 1); resetInterval(); });
-            }
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', function () {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    goToSlide(index);
-                    resetInterval();
+                // Crossfade transition
+                gsap.to(prevSlide, { 
+                    opacity: 0, 
+                    duration: 1.2, 
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        prevSlide.classList.remove('active');
+                        prevSlide.style.visibility = 'hidden';
+                    }
                 });
+
+                nextSlide.classList.add('active');
+                nextSlide.style.visibility = 'visible';
+                gsap.to(nextSlide, { opacity: 1, duration: 1.2, ease: "power2.inOut" });
+
+                // Trigger animations for the new slide
+                animateSlideContent(nextSlide);
+            }
+
+            // Initialize first slide animations
+            animateSlideContent(slides[0]);
+
+            // Start Auto-slider
+            setInterval(autoPlayHero, slideDuration);
+        }
+    }
+
+    // --- Preloader Animation (GSAP) ---
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            gsap.to(preloader, {
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.5,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('no-scroll-load');
+                    
+                    // லோடிங் முழுமையாக முடிந்த பிறகு அனிமேஷனைத் தொடங்குகிறோம்
+                    initHeroSlider();
+                    
+                    if (typeof AOS !== 'undefined') {
+                        AOS.init({ once: true, offset: 50, disable: window.innerWidth < 768 });
+                    }
+                }
             });
+        } else {
+            // ஒருவேளை Preloader இல்லை என்றால் நேரடியாக அனிமேஷன் தொடங்க
+            initHeroSlider();
+        }
+    });
 
-            function startInterval() {
-                slideInterval = setInterval(() => { goToSlide(currentSlide + 1); }, 6000);
+    // (உங்கள் மற்ற மெனு, காண்டாக்ட் ஃபார்ம் JS கோடுகளை இதற்கு கீழே அப்படியே வைத்துக்கொள்ளலாம்)
+
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const bookingForm = document.getElementById('bookingForm');
+
+    if (bookingForm) {
+        const phoneInput = document.getElementById('bookPhone');
+
+        // Phone Number - Only Numbers & Max 10 Digits
+        phoneInput.addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 10) {
+                this.value = this.value.slice(0, 10);
             }
-
-            function resetInterval() {
-                clearInterval(slideInterval);
-                startInterval();
-            }
-
-
-            if (slides.length > 0) {
-                animateSlideText(0);
-                startInterval();
-            }
-
         });
 
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
+            let isValid = true;
 
+            const emailInput = document.getElementById('bookEmail');
+            const dateInput = document.getElementById('bookDate');
 
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const dateError = document.getElementById('dateError');
 
-        const bookingForm = document.getElementById('bookingForm');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (bookingForm) {
-            const phoneInput = document.getElementById('bookPhone');
+            // Email Validation
+            if (emailInput.value.trim() === '' || !emailPattern.test(emailInput.value.trim())) {
+                if(emailError) emailError.style.display = 'block';
+                emailInput.style.borderColor = '#e11d48';
+                isValid = false;
+            } else {
+                if(emailError) emailError.style.display = 'none';
+                emailInput.style.borderColor = '#2563eb';
+            }
 
+            // Phone Validation
+            const phoneVal = phoneInput.value.trim();
+            if (phoneVal === '' || phoneVal.length !== 10) {
+                if(phoneError) phoneError.style.display = 'block';
+                phoneInput.style.borderColor = '#e11d48';
+                isValid = false;
+            } else {
+                if(phoneError) phoneError.style.display = 'none';
+                phoneInput.style.borderColor = '#2563eb';
+            }
 
-            phoneInput.addEventListener('input', function () {
-                this.value = this.value.replace(/[^0-9]/g, '');
-                if (this.value.length > 10) {
-                    this.value = this.value.slice(0, 10);
-                }
-            });
+            // Date Validation
+            if (dateInput.value.trim() === '') {
+                if(dateError) dateError.style.display = 'block';
+                dateInput.style.borderColor = '#e11d48';
+                isValid = false;
+            } else {
+                if(dateError) dateError.style.display = 'none';
+                dateInput.style.borderColor = '#2563eb';
+            }
 
-            bookingForm.addEventListener('submit', function (e) {
-                e.preventDefault();
+            // === SUCCESS & ROTATION ANIMATION ===
+            if (isValid) {
+                // கார்டை சுழல வைக்கும் கிளாஸை சேர்க்கிறோம்
+                const formCard = bookingForm.closest('.premium-panel') || bookingForm.parentElement;
+                formCard.classList.add('booking-card-wrapper', 'rotate-success');
 
-                let isValid = true;
-
-                const emailInput = document.getElementById('bookEmail');
-                const dateInput = document.getElementById('bookDate');
-
-                const emailError = document.getElementById('emailError');
-                const phoneError = document.getElementById('phoneError');
-                const dateError = document.getElementById('dateError');
-
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-                if (emailInput.value.trim() === '' || !emailPattern.test(emailInput.value.trim())) {
-                    emailError.style.display = 'block';
-                    emailInput.style.borderColor = '#e11d48';
-                    isValid = false;
-                } else {
-                    emailError.style.display = 'none';
-                    emailInput.style.borderColor = '#2563eb';
-                }
-
-
-                const phoneVal = phoneInput.value.trim();
-                if (phoneVal === '' || phoneVal.length !== 10) {
-                    phoneError.style.display = 'block';
-                    phoneInput.style.borderColor = '#e11d48';
-                    isValid = false;
-                } else {
-                    phoneError.style.display = 'none';
-                    phoneInput.style.borderColor = '#2563eb';
-                }
-
-
-                if (dateInput.value.trim() === '') {
-                    dateError.style.display = 'block';
-                    dateInput.style.borderColor = '#e11d48';
-                    isValid = false;
-                } else {
-                    dateError.style.display = 'none';
-                    dateInput.style.borderColor = '#2563eb';
+                // பட்டனில் உள்ள டெக்ஸ்ட்டை "Booking..." என மாற்றுவது
+                const submitBtn = bookingForm.querySelector('button[type="submit"]');
+                if(submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Booking...';
+                    submitBtn.style.background = '#10b981'; // Green color
                 }
 
-                if (isValid) {
+                // கார்டு திரும்பி முடித்த பிறகு (1.5 நொடிகள் கழித்து) அடுத்த பக்கத்திற்குச் செல்லும்
+                setTimeout(() => {
                     window.location.href = '404page.html';
                     bookingForm.reset();
+                }, 1500); 
+            }
+        });
 
-                    emailInput.style.borderColor = '#cbd5e1';
-                    phoneInput.style.borderColor = '#cbd5e1';
-                    dateInput.style.borderColor = '#cbd5e1';
-                }
-            });
+        // Type செய்யும்போது எர்ரரை மறைக்கும் பாதுகாப்பான முறை (Safe Input Logic)
+        const inputs = [
+            { field: document.getElementById('bookEmail'), error: document.getElementById('emailError') },
+            { field: document.getElementById('bookPhone'), error: document.getElementById('phoneError') },
+            { field: document.getElementById('bookDate'), error: document.getElementById('dateError') }
+        ];
 
-
-            const inputs = [document.getElementById('bookEmail'), document.getElementById('bookPhone'), document.getElementById('bookDate')];
-            inputs.forEach(input => {
-                input.addEventListener('input', function () {
+        inputs.forEach(item => {
+            if (item.field) {
+                item.field.addEventListener('input', function () {
                     this.style.borderColor = '#2563eb';
-                    this.nextElementSibling.style.display = 'none';
+                    if (item.error) item.error.style.display = 'none';
                 });
-            });
-        }
+            }
+        });
+    }
+});
 
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -1239,9 +1216,6 @@
                 if (marqueeTrack) marqueeTrack.classList.add('start-marquee');
             }
         });
-
-
-
 
 
     </script>

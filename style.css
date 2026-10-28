@@ -1,268 +1,168 @@
-.hero-slider-section {
-  position: relative;
-  width: 100%;
-  height: 95vh;
-  min-height: 600px;
-  overflow: hidden;
-  background-color: #0f172a;
-}
-body {
-  overflow-x: hidden;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.8s ease-in-out,
-    visibility 0.8s ease-in-out;
-  z-index: 1;
-}
-
-.slide.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 2;
-}
-
-.slide-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.05);
-  transition: transform 6s ease-out;
-}
-.slide.active .slide-bg {
-  transform: scale(1);
-}
-
-.slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.4);
-}
-
-.slide-content-container {
-  position: relative;
-  max-width: 1350px;
-  margin: 0 auto;
-  padding: 0 100px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 3;
-}
-
-.slide-text-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 50px;
-  border-radius: 16px;
-  border-left: 8px solid #2563eb;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-  max-width: 650px;
-}
-
-.slide-badge {
-  display: inline-block;
-  background-color: #eff6ff;
-  color: #2563eb;
-  padding: 6px 15px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-.slide-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  letter-spacing: -1px;
-}
-.slide-subtitle {
-  font-size: 1.2rem;
-  color: #1e3a8a;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-.hero-desc {
-  font-size: 16px;
-  color: #475569;
-  line-height: 1.7;
-  margin-bottom: 35px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.btn {
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.4s ease;
-}
-.btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: white;
-  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
-}
-.btn-primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
-  color: white;
-}
-.btn-secondary {
-  background: transparent;
-  color: #1e3a8a;
-  border: 2px solid #1e3a8a;
-}
-.btn-secondary:hover {
-  background: #1e3a8a;
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(30, 58, 138, 0.2);
-}
-
-.slider-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: #ffffff;
-  color: #0f172a;
-  border: none;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-.slider-nav-btn:hover {
-  background-color: #2563eb;
-  color: white;
-  transform: translateY(-50%) scale(1.1);
-}
-.prev-btn {
-  left: 30px;
-}
-.next-btn {
-  right: 30px;
-}
-
-.slider-pagination-pill {
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px 18px;
-  border-radius: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 5;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: #cbd5e1;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.dot.active {
-  background-color: #2563eb;
-  transform: scale(1.3);
-}
-
-@media (max-width: 992px) {
-  .slide-title {
-    font-size: 2.6rem;
-  }
-  .slide-content-container {
-    padding: 0 80px;
-  }
-  .slide-text-card {
-    padding: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-slider-section {
-    height: auto;
-    min-height: 130vh;
+/* =========================================
+   PREMIUM HERO SECTION (CENTERED)
+========================================= */
+.premium-hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    background-color: #0f172a;
     display: flex;
-  }
-
-  .slide-content-container {
-    padding: 120px 20px 100px 20px;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-  }
+    align-items: center;
+}
 
-  .slide-text-card {
-    padding: 30px 20px;
-    border-left: 5px solid #2563eb;
-    width: 100%;
-    border-radius: 12px;
-  }
+.hero-slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
 
-  .slide-title {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  .slide-subtitle {
-    font-size: 1rem;
-  }
-  .hero-desc {
-    font-size: 14px;
-    margin-bottom: 25px;
-  }
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
 
-  .hero-buttons {
-    gap: 15px;
-  }
-  .btn {
-    padding: 10px 20px;
-    font-size: 15px;
-    width: 100%;
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    transform: scale(1); 
+}
+
+/* Dark gradient to make center text pop */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.8) 100%);
+    z-index: -1;
+}
+
+/* Centered Content */
+.hero-content {
     text-align: center;
-  }
+    max-width: 800px;
+    padding: 0 20px;
+    color: #ffffff;
+}
 
-  .slider-nav-btn {
-    display: none;
-  }
-  .slider-pagination-pill {
-    bottom: 20px;
-    right: 50%;
-    transform: translateX(50%);
-    padding: 8px 15px;
-  }
+.hero-badge {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgba(37, 99, 235, 0.5);
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.hero-desc {
+    font-size: 18px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Buttons & Fire Hover Effect */
+.hero-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-fire {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+}
+
+/* Fire Glow Hover */
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.6), 0 0 40px rgba(37, 99, 235, 0.4);
+    color: #ffffff;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-outline:hover {
+    background: #ffffff;
+    color: #0f172a;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   100% MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+    .hero-title { font-size: 40px; }
+    .hero-desc { font-size: 16px; }
+    .hero-content { margin-top: 60px; /* Offset for mobile header */ }
+}
+
+@media (max-width: 576px) {
+    .hero-title { font-size: 32px; }
+    .hero-desc { font-size: 15px; margin-bottom: 30px; }
+    .hero-btn-group { flex-direction: column; gap: 15px; }
+    .btn-fire { width: 100%; text-align: center; }
+}
+
+/* 3D Rotation Animation Classes */
+.booking-card-wrapper {
+    perspective: 1000px; /* 3D effect-க்காக */
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.booking-card-wrapper.rotate-success {
+    transform: rotateY(180deg) scale(1.05); /* கார்டை திருப்பி லேசாக ஜூம் செய்யும் */
+    opacity: 0.5; /* திரும்பிய பின் மெதுவாக மறைய */
 }
 
 .booking-section {
@@ -361,6 +261,10 @@ body {
 
 .input-group input::placeholder {
   color: #94a3b8;
+}
+
+a{
+  text-decoration: none;
 }
 
 .error-msg {
