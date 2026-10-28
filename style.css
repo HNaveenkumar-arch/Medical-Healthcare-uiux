@@ -1,6 +1,4 @@
-/* =========================================
-   PREMIUM HERO SECTION (CENTERED)
-========================================= */
+ 
 .premium-hero-section {
     position: relative;
     width: 100%;
@@ -42,7 +40,7 @@
     transform: scale(1); 
 }
 
-/* Dark gradient to make center text pop */
+ 
 .hero-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -51,7 +49,7 @@
     z-index: -1;
 }
 
-/* Centered Content */
+ 
 .hero-content {
     text-align: center;
     max-width: 800px;
@@ -93,7 +91,7 @@
     text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* Buttons & Fire Hover Effect */
+ 
 .hero-btn-group {
     display: flex;
     justify-content: center;
@@ -117,7 +115,7 @@
     border: none;
 }
 
-/* Fire Glow Hover */
+ 
 .btn-primary:hover {
     background: #1d4ed8;
     transform: translateY(-5px) scale(1.05);
@@ -138,13 +136,11 @@
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
-/* =========================================
-   100% MOBILE RESPONSIVE
-========================================= */
+ 
 @media (max-width: 768px) {
     .hero-title { font-size: 40px; }
     .hero-desc { font-size: 16px; }
-    .hero-content { margin-top: 60px; /* Offset for mobile header */ }
+    .hero-content { margin-top: 60px;   }
 }
 
 @media (max-width: 576px) {
@@ -154,15 +150,15 @@
     .btn-fire { width: 100%; text-align: center; }
 }
 
-/* 3D Rotation Animation Classes */
+ 
 .booking-card-wrapper {
-    perspective: 1000px; /* 3D effect-க்காக */
+    perspective: 1000px;  
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .booking-card-wrapper.rotate-success {
-    transform: rotateY(180deg) scale(1.05); /* கார்டை திருப்பி லேசாக ஜூம் செய்யும் */
-    opacity: 0.5; /* திரும்பிய பின் மெதுவாக மறைய */
+    transform: rotateY(180deg) scale(1.05);  
+    opacity: 0.5;  
 }
 
 .booking-section {
@@ -983,20 +979,18 @@ a{
   font-size: 22px;
 }
 
-/* =========================================
-   JOIN BUTTONS & STYLING
-========================================= */
+ 
 
-/* Button Group Container */
+ 
 .join-buttons {
     display: flex;
     gap: 15px;
     align-items: center;
-    flex-wrap: wrap; /* மொபைலில் பட்டன்கள் அடுத்தடுத்து அழகாக அமைய */
+    flex-wrap: wrap;  
     margin-top: 20px;
 }
 
-/* Base Button Style */
+ 
 .join-buttons .btn {
     display: inline-flex;
     justify-content: center;
@@ -1010,7 +1004,7 @@ a{
     cursor: pointer;
 }
 
-/* Primary Button (Contact Us) */
+ 
 .join-buttons .btn-primary {
     background-color: #2563eb;
     color: #ffffff;
@@ -1021,11 +1015,11 @@ a{
 .join-buttons .btn-primary:hover {
     background-color: #1d4ed8;
     border-color: #1d4ed8;
-    transform: translateY(-4px); /* Hover செய்யும்போது லேசாக மேலெழும்பும் */
+    transform: translateY(-4px);  
     box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
 }
 
-/* Secondary Button (Learn More) */
+ 
 .join-buttons .btn-secondary {
     background-color: transparent;
     color: #0f172a;
@@ -1039,14 +1033,14 @@ a{
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Mobile Responsive */
+ 
 @media (max-width: 576px) {
     .join-buttons {
         flex-direction: column;
         width: 100%;
     }
     .join-buttons .btn {
-        width: 100%; /* மொபைலில் பட்டன்கள் முழு அகலத்தில் (Full Width) இருக்கும் */
+        width: 100%;  
         text-align: center;
     }
 }

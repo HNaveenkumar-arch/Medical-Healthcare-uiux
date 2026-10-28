@@ -188,9 +188,7 @@
   box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
 }
 
-/* =========================================
-   PREMIUM WELCOME SECTION
-========================================= */
+ 
 .premium-welcome-section {
     padding: 100px 20px;
     background-color: #f8fafc;
@@ -206,7 +204,7 @@
     align-items: center;
 }
 
-/* Left Content */
+ 
 .welcome-badge {
     display: inline-block;
     background: #eff6ff;
@@ -283,7 +281,7 @@
     background: #1d4ed8;
 }
 
-/* Right Visuals */
+ 
 .visual-image-wrapper {
     position: relative;
     border-radius: 20px;
@@ -297,7 +295,7 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* Floating Glassmorphism Cards */
+ 
 .floating-card {
     position: absolute;
     background: rgba(255, 255, 255, 0.9);
@@ -348,27 +346,27 @@
     animation: floatAnim 5s ease-in-out infinite alternate;
 }
 
-/* Button Background Color Fix */
+ 
 .btn-action.bg-blue {
-    background-color: #2563eb; /* ப்ளூ கலர் பேக்ரவுண்ட் */
-    color: #ffffff; /* வெள்ளை நிற எழுத்துக்கள் */
+    background-color: #2563eb;  
+    color: #ffffff;  
 }
 
-/* Hover ஆகும்போது டார்க் ப்ளூவாக மாற */
+ 
 .btn-action.bg-blue:hover {
     background-color: #1d4ed8; 
     color: #ffffff;
 }
 
-/* Floating Icon Background Colors */
+ 
 .float-icon.bg-blue {
-    background-color: #2563eb; /* Blue Background */
-    color: #ffffff; /* White Icon */
+    background-color: #2563eb;  
+    color: #ffffff;  
 }
 
 .float-icon.bg-green {
-    background-color: #10b981; /* Green Background */
-    color: #ffffff; /* White Icon */
+    background-color: #10b981;  
+    color: #ffffff;  
 }
 
 @keyframes floatAnim {
@@ -377,9 +375,7 @@
     100% { transform: translateY(0px); }
 }
 
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
+ 
 @media (max-width: 992px) {
     .welcome-grid {
         grid-template-columns: 1fr;

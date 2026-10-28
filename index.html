@@ -124,13 +124,13 @@
     </div>
 
 
-    <!-- Premium GSAP Hero Section -->
+     
     <section class="premium-hero-section">
 
-        <!-- Slide 1 -->
+         
         <div class="hero-slide active">
             <div class="hero-bg" style="background-image: url('./asset/w2.webp');"></div>
-            <!-- Gradient Overlay for text readability -->
+             
             <div class="hero-overlay"></div>
             
             <div class="hero-content">
@@ -145,7 +145,7 @@
             </div>
         </div>
 
-        <!-- Slide 2 -->
+         
         <div class="hero-slide">
             <div class="hero-bg" style="background-image: url('./asset/w1.webp');"></div>
             <div class="hero-overlay"></div>
@@ -800,20 +800,19 @@
     <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- Hero Slider Logic (லோடிங் முடிந்ததும் வேலை செய்ய தனியாக ஃபங்ஷன்) ---
     function initHeroSlider() {
         const slides = document.querySelectorAll('.hero-slide');
         if (slides.length > 0) {
             let currentSlide = 0;
-            const slideDuration = 6000; // 6 seconds per slide
+            const slideDuration = 6000;
 
             function animateSlideContent(slide) {
-                // Text Elements Staggered Fade Up
+                
                 const elements = slide.querySelectorAll('.hero-badge, .hero-title, .hero-desc, .hero-btn-group');
-                // Reset opacity first
+                
                 gsap.set(elements, { opacity: 0, y: 40 });
                 
-                // Animate
+                
                 gsap.to(elements, { 
                     y: 0, 
                     opacity: 1, 
@@ -823,7 +822,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     delay: 0.2 
                 });
 
-                // Background Zoom Effect (Parallax Scale)
                 const bg = slide.querySelector('.hero-bg');
                 gsap.fromTo(bg, { scale: 1 }, { scale: 1.1, duration: 6, ease: "none" });
             }
@@ -833,7 +831,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentSlide = (currentSlide + 1) % slides.length;
                 const nextSlide = slides[currentSlide];
 
-                // Crossfade transition
                 gsap.to(prevSlide, { 
                     opacity: 0, 
                     duration: 1.2, 
@@ -848,19 +845,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextSlide.style.visibility = 'visible';
                 gsap.to(nextSlide, { opacity: 1, duration: 1.2, ease: "power2.inOut" });
 
-                // Trigger animations for the new slide
                 animateSlideContent(nextSlide);
             }
 
-            // Initialize first slide animations
             animateSlideContent(slides[0]);
 
-            // Start Auto-slider
             setInterval(autoPlayHero, slideDuration);
         }
     }
 
-    // --- Preloader Animation (GSAP) ---
     window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
@@ -873,7 +866,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     preloader.style.display = 'none';
                     document.body.classList.remove('no-scroll-load');
                     
-                    // லோடிங் முழுமையாக முடிந்த பிறகு அனிமேஷனைத் தொடங்குகிறோம்
                     initHeroSlider();
                     
                     if (typeof AOS !== 'undefined') {
@@ -882,12 +874,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         } else {
-            // ஒருவேளை Preloader இல்லை என்றால் நேரடியாக அனிமேஷன் தொடங்க
             initHeroSlider();
         }
     });
 
-    // (உங்கள் மற்ற மெனு, காண்டாக்ட் ஃபார்ம் JS கோடுகளை இதற்கு கீழே அப்படியே வைத்துக்கொள்ளலாம்)
 
 });
 
@@ -899,7 +889,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (bookingForm) {
         const phoneInput = document.getElementById('bookPhone');
 
-        // Phone Number - Only Numbers & Max 10 Digits
         phoneInput.addEventListener('input', function () {
             this.value = this.value.replace(/[^0-9]/g, '');
             if (this.value.length > 10) {
@@ -921,7 +910,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // Email Validation
             if (emailInput.value.trim() === '' || !emailPattern.test(emailInput.value.trim())) {
                 if(emailError) emailError.style.display = 'block';
                 emailInput.style.borderColor = '#e11d48';
@@ -931,7 +919,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 emailInput.style.borderColor = '#2563eb';
             }
 
-            // Phone Validation
             const phoneVal = phoneInput.value.trim();
             if (phoneVal === '' || phoneVal.length !== 10) {
                 if(phoneError) phoneError.style.display = 'block';
@@ -942,7 +929,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 phoneInput.style.borderColor = '#2563eb';
             }
 
-            // Date Validation
             if (dateInput.value.trim() === '') {
                 if(dateError) dateError.style.display = 'block';
                 dateInput.style.borderColor = '#e11d48';
@@ -952,20 +938,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 dateInput.style.borderColor = '#2563eb';
             }
 
-            // === SUCCESS & ROTATION ANIMATION ===
             if (isValid) {
-                // கார்டை சுழல வைக்கும் கிளாஸை சேர்க்கிறோம்
                 const formCard = bookingForm.closest('.premium-panel') || bookingForm.parentElement;
                 formCard.classList.add('booking-card-wrapper', 'rotate-success');
 
-                // பட்டனில் உள்ள டெக்ஸ்ட்டை "Booking..." என மாற்றுவது
                 const submitBtn = bookingForm.querySelector('button[type="submit"]');
                 if(submitBtn) {
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Booking...';
-                    submitBtn.style.background = '#10b981'; // Green color
+                    submitBtn.style.background = '#10b981'; 
                 }
 
-                // கார்டு திரும்பி முடித்த பிறகு (1.5 நொடிகள் கழித்து) அடுத்த பக்கத்திற்குச் செல்லும்
                 setTimeout(() => {
                     window.location.href = '404page.html';
                     bookingForm.reset();
@@ -973,7 +955,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Type செய்யும்போது எர்ரரை மறைக்கும் பாதுகாப்பான முறை (Safe Input Logic)
         const inputs = [
             { field: document.getElementById('bookEmail'), error: document.getElementById('emailError') },
             { field: document.getElementById('bookPhone'), error: document.getElementById('phoneError') },
@@ -997,10 +978,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 gsap.registerPlugin(ScrollTrigger);
-
-
-
-
 
 
                 gsap.from(".cta-anim-text", {
